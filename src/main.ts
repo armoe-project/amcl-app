@@ -20,4 +20,4 @@ app.use(pinia)
 app.mount('#app')
 
 console.log('Armoe Minecraft Launcher')
-console.log('Github: https://github.com/armoe-project/minecraft-launcher')
+console.log('Github: https://github.com/armoe-project/amcl-app')
