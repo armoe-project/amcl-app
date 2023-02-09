@@ -1,16 +1,14 @@
 {
   "name": "amcl-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "ZhenXin",
   "license": "GPL-3.0-only",
   "homepage": "https://github.com/armoe-project/amcl-app",
   "scripts": {
-    "dev": "pnpm tauri:dev",
-    "build": "pnpm tauri:build",
-    "tauri:dev": "tauri dev",
-    "tauri:build": "tauri build",
-    "tauri:info": "tauri info",
-    "vite:dev": "vite dev",
+    "dev": "pnpm tauri dev",
+    "build": "pnpm tauri build",
+    "tauri": "tauri",
+    "vite:dev": "vite",
     "vite:build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {

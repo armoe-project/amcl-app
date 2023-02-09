@@ -7,15 +7,17 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "armoe-launcher",
+    "productName": "amcl",
     "version": "../package.json"
   },
   "tauri": {
     "allowlist": {
-      "all": false,
-      "shell": {
-        "all": false,
-        "open": true
+      "http": {
+        "all": true,
+        "scope": [
+          "https://api.armoe.cn/amcl/*",
+          "https://api.github.com/repo/armoe-project/*"
+        ]
       },
       "fs": {
         "scope": [
@@ -34,7 +36,7 @@
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
+      "category": "Utility",
       "copyright": "Armoe Project Team",
       "deb": {
         "depends": []
