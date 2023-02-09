@@ -5,6 +5,7 @@ import router from './router'
 import { createPinia } from 'pinia'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'element-plus/theme-chalk/dark/css-vars.css'
+import { logger } from './utils'
 
 const app = createApp(App)
 
@@ -19,5 +20,6 @@ app.use(pinia)
 
 app.mount('#app')
 
-console.log('Armoe Minecraft Launcher')
-console.log('Github: https://github.com/armoe-project/amcl-app')
+logger.info('Armoe Minecraft Launcher')
+logger.info('文档: https://amcl.armoe.cn')
+logger.info('Github: https://github.com/armoe-project/amcl-app')

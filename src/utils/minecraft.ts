@@ -1,11 +1,15 @@
 import { exists, BaseDirectory, createDir, readDir } from '@tauri-apps/api/fs'
-import { basename } from '@tauri-apps/api/path'
+import { logger } from './'
 
 const options = { dir: BaseDirectory.Resource, recursive: true }
 
 async function getMCVersions() {
   const result = [{}]
   const dir = '.minecraft/versions'
+  if (!(await exists(dir, options))) {
+    logger.warn(`目录 ${dir} 不存在.`)
+    return
+  }
   const versions = await readDir(dir, options)
   versions.forEach((version) => {
     const name = version.name
