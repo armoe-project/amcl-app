@@ -1,8 +1,10 @@
 <template>
+  <suspense>
   <el-config-provider :locale="locale">
     <tool-bar />
     <router-view />
   </el-config-provider>
+</suspense>
 </template>
 
 <script lang="ts" setup>

@@ -1,37 +1,42 @@
 <template>
   <div data-tauri-drag-region class="amcl-toolbar">
-    <img
-      data-tauri-drag-region
-      class="amcl-toolbar-icon"
-      src="/images/icon.png"
-    />
-    <span data-tauri-drag-region class="amcl-toolbar-title">
-      Armoe Minecraft Launcher
-    </span>
-    <el-button-group class="amcl-toobar-button">
-      <el-button
-        v-if="!isIndexPath() && !isHomePath()"
-        text
-        icon="Back"
-        @click="backToParent"
-      ></el-button>
-      <el-button
-        v-if="isHomePath()"
-        text
-        icon="Setting"
-        @click="pushToSettings"
+    <div v-if="!isMacOS">
+      <img
+        data-tauri-drag-region
+        class="amcl-toolbar-icon"
+        src="/images/icon.png"
       />
-      <el-button text icon="Minus" @click="minimizeApp" />
-      <el-button text icon="Close" @click="closeApp" />
-    </el-button-group>
+      <span data-tauri-drag-region class="amcl-toolbar-title">
+        Armoe Minecraft Launcher
+      </span>
+      <el-button-group class="amcl-toobar-button">
+        <el-button
+          v-if="!isIndexPath() && !isHomePath()"
+          text
+          icon="Back"
+          @click="backToParent"
+        ></el-button>
+        <el-button
+          v-if="isHomePath()"
+          text
+          icon="Setting"
+          @click="pushToSettings"
+        />
+        <el-button text icon="Minus" @click="minimizeApp" />
+        <el-button text icon="Close" @click="closeApp" />
+      </el-button-group>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { appWindow } from '@tauri-apps/api/window'
+import { platform } from '@tauri-apps/api/os'
 import { useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue'
 
 const router = useRouter()
+const isMacOS = ref(false)
 
 const isIndexPath = () => {
   return window.location.pathname == '/'
@@ -51,6 +56,11 @@ const pushToSettings = () => {
 const minimizeApp = (e: any) => appWindow.minimize()
 
 const closeApp = () => appWindow.close()
+
+onMounted(async () => {
+  const platformName = await platform()
+  isMacOS.value = platformName == 'darwin'
+})
 </script>
 
 <style lang="scss">

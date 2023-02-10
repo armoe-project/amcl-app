@@ -12,6 +12,9 @@
   },
   "tauri": {
     "allowlist": {
+      "os": {
+        "all": true
+      },
       "http": {
         "all": true,
         "scope": [
@@ -80,7 +83,8 @@
         "height": 480,
         "center": true,
         "resizable": false,
-        "decorations": false
+        "decorations": true,
+        "titleBarStyle": "Overlay"
       }
     ]
   }
