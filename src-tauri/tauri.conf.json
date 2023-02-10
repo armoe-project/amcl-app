@@ -34,7 +34,8 @@
       "window": {
        "startDragging": true,
        "minimize": true,
-       "close": true
+       "close": true,
+       "setDecorations": true
       }
     },
     "bundle": {
@@ -83,7 +84,6 @@
         "height": 480,
         "center": true,
         "resizable": false,
-        "decorations": true,
         "titleBarStyle": "Overlay"
       }
     ]
