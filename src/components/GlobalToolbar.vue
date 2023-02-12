@@ -53,6 +53,7 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .amcl-toolbar {
+  color: white;
   height: 30px;
   display: flex;
   position: relative;
@@ -78,6 +79,7 @@ onMounted(async () => {
   }
 
   button {
+    color: white;
     :hover,
     :focus {
       background: transparent !important;
