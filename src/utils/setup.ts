@@ -30,9 +30,13 @@ class Setup {
 
   setupI18n() {
     const store = useAppStore()
+    let language = store.language
+    if (language == 'auto') {
+      language = navigator.language
+    }
     const i18n = createI18n({
       fallbackLocale: 'en-US',
-      locale: store.locale,
+      locale: language,
       messages
     })
     this.app.use(i18n)
