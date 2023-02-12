@@ -1,9 +1,9 @@
 <template>
   <div class="amcl-main">
     <div class="amcl-main-start">
-      <el-button class="amcl-main-start-button" size="large" type="primary"
-        >开始游戏</el-button
-      >
+      <el-button class="amcl-main-start-button" size="large" type="primary">{{
+        $t('app.main.startGame')
+      }}</el-button>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ import { getMCVersions, initMCDir } from '../utils'
 
 onMounted(async () => {
   await initMCDir()
-  getMCVersions()
+  await getMCVersions()
 })
 </script>
 

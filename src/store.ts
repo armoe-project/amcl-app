@@ -1,13 +1,7 @@
 import { defineStore } from 'pinia'
 
-const useMainStore = defineStore('main', {
-  state: () => {
-    return {
-      current: '/',
-      theme: 'auto',
-      lang: 'zh-CN'
-    }
-  }
+export const useAppStore = defineStore('app', {
+  state: () => ({
+    locale: 'en-US'
+  })
 })
-
-export { useMainStore }

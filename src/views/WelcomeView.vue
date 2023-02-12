@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="amcl-welcome-main"
-    v-loading="loading"
-    :element-loading-text="loadingTips"
-  ></div>
+  <div class="amcl-welcome-main" v-loading="loading" :element-loading-text="loadingTips"></div>
 </template>
 
 <script lang="ts" setup>

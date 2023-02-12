@@ -1,10 +1,11 @@
 {
   "recommendations": [
     "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "lokalise.i18n-ally",
     "tauri-apps.tauri-vscode",
     "rust-lang.rust-analyzer",
     "Syler.sass-indented",
-    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode"
   ]
 }

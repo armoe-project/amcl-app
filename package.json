@@ -19,9 +19,11 @@
     "pinia": "^2.0.30",
     "sass": "^1.58.0",
     "vue": "^3.2.47",
+    "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "^0.8.2",
     "@tauri-apps/cli": "^1.2.3",
     "@types/node": "^18.13.0",
     "@vitejs/plugin-vue": "^4.0.0",

@@ -1,11 +1,6 @@
 <template>
   <div data-tauri-drag-region class="amcl-toolbar">
-    <img
-      data-tauri-drag-region
-      v-if="!isMacOS"
-      class="amcl-toolbar-icon"
-      src="/images/icon.png"
-    />
+    <img data-tauri-drag-region v-if="!isMacOS" class="amcl-toolbar-icon" src="/images/icon.png" />
     <span data-tauri-drag-region v-if="!isMacOS" class="amcl-toolbar-title">
       Armoe Minecraft Launcher
     </span>
@@ -16,12 +11,7 @@
         icon="Back"
         @click="backToParent"
       ></el-button>
-      <el-button
-        v-if="isHomePath()"
-        text
-        icon="Setting"
-        @click="pushToSettings"
-      />
+      <el-button v-if="isHomePath()" text icon="Setting" @click="pushToSettings" />
       <el-button v-if="!isMacOS" text icon="Minus" @click="minimizeApp" />
       <el-button v-if="!isMacOS" text icon="Close" @click="closeApp" />
     </el-button-group>
