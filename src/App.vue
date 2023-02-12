@@ -1,17 +1,14 @@
 <template>
-  <suspense>
-    <el-config-provider :locale="locale">
-      <tool-bar />
-      <router-view />
-    </el-config-provider>
-  </suspense>
+  <el-config-provider :locale="locale">
+    <global-toolbar />
+    <router-view />
+  </el-config-provider>
 </template>
 
 <script lang="ts" setup>
-import { useDark, useToggle } from '@vueuse/core'
 import { onMounted } from 'vue'
+import { useDark, useToggle } from '@vueuse/core'
 import locale from 'element-plus/es/locale/lang/zh-cn'
-import ToolBar from './components/ToolBar.vue'
 import { appWindow } from '@tauri-apps/api/window'
 import { platform } from '@tauri-apps/api/os'
 import { logger } from './utils'
@@ -31,6 +28,6 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
-@use 'element-plus/theme-chalk/dark/css-vars.css';
+@use 'element-plus/theme-chalk/src/dark/css-vars.scss';
 @use './styles/index.scss';
 </style>

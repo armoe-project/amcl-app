@@ -18,7 +18,7 @@ onMounted(async () => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .amcl-main {
   display: flex;
   flex-direction: row;

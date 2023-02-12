@@ -1,10 +1,9 @@
 <template>
   <div data-tauri-drag-region class="amcl-toolbar">
-    <img data-tauri-drag-region v-if="!isMacOS" class="amcl-toolbar-icon" src="/images/icon.png" />
     <span data-tauri-drag-region v-if="!isMacOS" class="amcl-toolbar-title">
       Armoe Minecraft Launcher
     </span>
-    <el-button-group class="amcl-toobar-button">
+    <el-button-group class="amcl-toolbar-button">
       <el-button
         v-if="!isIndexPath() && !isHomePath()"
         text
@@ -28,18 +27,18 @@ const router = useRouter()
 const isMacOS = ref(false)
 
 const isIndexPath = () => {
-  return window.location.pathname == '/'
+  return router.currentRoute.value.name == 'Index'
 }
 const isHomePath = () => {
-  return window.location.pathname == '/home'
+  return router.currentRoute.value.name == 'Home'
 }
 
 const backToParent = () => {
   router.back()
 }
 
-const pushToSettings = () => {
-  router.push('/')
+const pushToSettings = async () => {
+  await router.push('settings')
 }
 
 const minimizeApp = (e: any) => appWindow.minimize()
@@ -52,43 +51,37 @@ onMounted(async () => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .amcl-toolbar {
   height: 30px;
   display: flex;
-  background-color: rgba($color: #08f, $alpha: 0.3);
-  color: #fff;
-}
-
-.amcl-toolbar-icon {
-  width: 20px;
-  height: 20px;
-  margin-top: 5px;
-  margin-left: 5px;
+  position: relative;
+  background-color: rgba($color: #08f, $alpha: 0.5);
 }
 
 .amcl-toolbar-title {
-  margin-top: 7px;
-  margin-left: 7px;
-  font-size: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
   cursor: default;
+  margin: 0 auto;
 }
 
-.amcl-toobar-button {
+.amcl-toolbar-button {
   margin-left: auto;
   justify-content: flex-end;
   :hover,
   :focus {
     background-color: rgba($color: #6cf, $alpha: 0.2) !important;
   }
+
   button {
     :hover,
     :focus {
       background: transparent !important;
     }
-  }
-  i {
-    color: #fff;
   }
 }
 </style>

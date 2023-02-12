@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import { createI18n } from 'vue-i18n'
 import messages from '@intlify/unplugin-vue-i18n/messages'
 import { App } from 'vue'
-import { useAppStore } from '../store'
+import { useAppStore } from '../stoere'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 class Setup {
