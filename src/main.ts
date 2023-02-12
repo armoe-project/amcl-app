@@ -1,13 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { createSetup } from './utils'
+import { setupApp, setupI18n, setupIcon, setupPinia, setupRouter } from './utils'
+
+await setupApp()
 
 const app = createApp(App)
 
-const setup = createSetup(app)
-setup.setupRouter()
-setup.setupPinia()
-setup.setupI18n()
-setup.setupElementPlus()
+setupIcon(app)
+setupRouter(app)
+setupPinia(app)
+setupI18n(app)
 
 app.mount('#app')

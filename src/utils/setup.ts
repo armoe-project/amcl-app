@@ -5,42 +5,52 @@ import messages from '@intlify/unplugin-vue-i18n/messages'
 import { App } from 'vue'
 import { useAppStore } from '../stoere'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { logger } from '.'
+import { platform } from '@tauri-apps/api/os'
+import { appWindow } from '@tauri-apps/api/window'
+import { useDark, useToggle } from '@vueuse/core'
 
-class Setup {
-  app: App<Element>
+async function setupApp() {
+  logger.info('Armoe Minecraft Launcher')
+  logger.info('文档: https://amcl.armoe.cn')
+  logger.info('Github: https://github.com/armoe-project/amcl-app')
 
-  constructor(app: App<Element>) {
-    this.app = app
+  const platformName = await platform()
+  if (platformName != 'darwin') {
+    await appWindow.setDecorations(false)
   }
 
-  setupElementPlus() {
-    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-      this.app.component(key, component)
-    }
-  }
+  const isDark = useDark()
+  useToggle(isDark)
+}
 
-  setupRouter() {
-    this.app.use(router)
-  }
-
-  setupPinia() {
-    const pinia = createPinia()
-    this.app.use(pinia)
-  }
-
-  setupI18n() {
-    const store = useAppStore()
-    let language = store.language
-    if (language == 'auto') {
-      language = navigator.language
-    }
-    const i18n = createI18n({
-      fallbackLocale: 'en-US',
-      locale: language,
-      messages
-    })
-    this.app.use(i18n)
+function setupIcon(app: App<Element>) {
+  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
   }
 }
 
-export const createSetup = (app: App<Element>) => new Setup(app)
+function setupRouter(app: App<Element>) {
+  app.use(router)
+}
+
+function setupPinia(app: App<Element>) {
+  const pinia = createPinia()
+  app.use(pinia)
+}
+
+function setupI18n(app: App<Element>) {
+  const store = useAppStore()
+  let language = store.language
+  if (language == 'auto') {
+    language = navigator.language
+  }
+  const i18n = createI18n({
+    fallbackLocale: 'en-US',
+    locale: language,
+    messages
+  })
+  app.use(i18n)
+}
+
+export { setupApp, setupIcon, setupRouter, setupPinia, setupI18n }

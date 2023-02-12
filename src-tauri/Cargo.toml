@@ -1,10 +1,10 @@
 [package]
-name = "armoe-launcher"
-version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+name = "amcl-app"
+version = "1.0.0"
+description = "Armoe Minecraft Launcher"
+authors = ["ZhenXin"]
+license = "GPL-3.0"
+repository = "https://github.com/armoe-project/amcl-app"
 edition = "2021"
 rust-version = "1.57"
 

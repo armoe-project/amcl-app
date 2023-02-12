@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "amcl",
+    "productName": "Armoe Minecraft Launcher",
     "version": "../package.json"
   },
   "tauri": {
@@ -51,7 +51,7 @@
         "icons/icon.ico"
       ],
       "identifier": "cn.armoe.amcl",
-      "longDescription": "",
+      "longDescription": "Armoe Cross-platform Minecraft Launcher By: ZhenXin",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
@@ -60,14 +60,14 @@
         "signingIdentity": null
       },
       "resources": [],
-      "shortDescription": "",
+      "shortDescription": "Armoe Minecraft Launcher",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
         "wix": {
-          "language": ["zh-CN"]
+          "language": ["en-US","zh-CN"]
         }
       }
     },
