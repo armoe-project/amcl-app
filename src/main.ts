@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { setupApp, setupI18n, setupIcon, setupPinia, setupRouter } from './utils'
+import { setupI18n, setupIcon, setupPinia, setupRouter } from './utils'
+import { setupApp } from './app'
 
-await setupApp()
+setupApp()
 
 const app = createApp(App)
 
