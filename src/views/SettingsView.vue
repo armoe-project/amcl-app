@@ -4,15 +4,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { onMounted } from 'vue'
-import { request } from '../app/utils'
-
-onMounted(async () => {
-  const res = await request.get('')
-  console.log(res.data)
-})
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 .amcl-settings {
