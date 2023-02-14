@@ -4,9 +4,12 @@
 
 ![][node]
 ![][pnpm]
+
 ![][tauri]
 ![][vue]
 ![][element-plus]
+
+![][release]
 ![][license]
 
 </div>
@@ -26,12 +29,15 @@
 - [ ] Mod 下载/安装
 - [ ] 整合包导入
 - [ ] 背景音乐/图片设置
-- [ ] 部分 UI/文字自定义
 
 ## 文档
 
 - [使用文档](https://amcl.armoe.cn/)
 - [开发文档](https://amcl.armoe.cn/dev/runtime.html)
+
+## 反馈
+
+提交 [Issues](https://github.com/armoe-project/amcl-app/issues)
 
 ## 开源协议
 
@@ -61,8 +67,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 [banner]: https://socialify.git.ci/armoe-project/amcl-app/image?description=1&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Auto
 [node]: https://img.shields.io/badge/node-18-blue?style=for-the-badge
-[pnpm]: https://img.shields.io/badge/pnpm-7-blue?style=for-the-badge
-[tauri]: https://img.shields.io/badge/tauri-1-blue?style=for-the-badge
-[vue]: https://img.shields.io/badge/vue.js-3-blue?style=for-the-badge
-[element-plus]: https://img.shields.io/badge/element--plus-2-blue?style=for-the-badge
+[pnpm]: https://img.shields.io/github/package-json/packageManager/armoe-project/amcl-app?style=for-the-badge
+[tauri]: https://img.shields.io/badge/tauri-^1.2-blue?style=for-the-badge
+[vue]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/vue?style=for-the-badge
+[element-plus]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/element-plus?style=for-the-badge
+[release]: https://img.shields.io/github/v/release/armoe-project/amcl-app?style=for-the-badge
 [license]: https://img.shields.io/github/license/armoe-project/amcl-app?style=for-the-badge
