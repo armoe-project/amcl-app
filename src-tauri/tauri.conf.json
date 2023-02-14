@@ -32,10 +32,10 @@
         "all": true
       },
       "window": {
-       "startDragging": true,
-       "minimize": true,
-       "close": true,
-       "setDecorations": true
+        "close": true,
+        "minimize": true,
+        "setDecorations": true,
+        "startDragging": true
       }
     },
     "bundle": {
@@ -85,6 +85,7 @@
         "title": "Armoe Minecraft Launcher",
         "width": 854,
         "height": 480,
+        "visible": false,
         "center": true,
         "resizable": false,
         "titleBarStyle": "Overlay"

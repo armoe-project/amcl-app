@@ -1,9 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { setupI18n, setupIcon, setupPinia, setupRouter } from './utils'
-import { setupApp } from './app'
-
-setupApp()
+import { logger, setupI18n, setupIcon, setupPinia, setupRouter } from './utils'
 
 const app = createApp(App)
 
@@ -13,3 +10,7 @@ setupPinia(app)
 setupI18n(app)
 
 app.mount('#app')
+
+logger.info('Armoe Minecraft Launcher')
+logger.info('文档: https://amcl.armoe.cn')
+logger.info('Github: https://github.com/armoe-project/amcl-app')
