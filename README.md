@@ -65,10 +65,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 - [ElementPlus](https://element-plus.org/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-[banner]: https://socialify.git.ci/armoe-project/amcl-app/image?description=1&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Auto
+[banner]: https://socialify.git.ci/armoe-project/amcl-app/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2Farmoe-project%2Famcl-app%2Fmain%2Fsrc-tauri%2Ficons%2Ficon.png&owner=1&pulls=1&stargazers=1&theme=Auto
 [node]: https://img.shields.io/badge/node-18-blue?style=for-the-badge
 [pnpm]: https://img.shields.io/github/package-json/packageManager/armoe-project/amcl-app?style=for-the-badge
-[tauri]: https://img.shields.io/badge/tauri-^1.2-blue?style=for-the-badge
+[tauri]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/@tauri-apps/api?label=tauri&style=for-the-badge
 [vue]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/vue?style=for-the-badge
 [element-plus]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/element-plus?style=for-the-badge
 [release]: https://img.shields.io/github/v/release/armoe-project/amcl-app?style=for-the-badge
