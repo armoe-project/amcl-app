@@ -7,7 +7,7 @@
 
 ![][tauri]
 ![][vue]
-![][element-plus]
+![][naive-ui]
 
 ![][release]
 ![][license]
@@ -16,7 +16,7 @@
 
 ## 简介
 
-使用`Tauri` + `Vue` + `ElementPlus` 开发的跨平台 Minecraft 启动器
+使用`Tauri` + `Vue` + `Naive UI` 开发的跨平台 Minecraft 启动器
 
 ## 待办
 
@@ -62,14 +62,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 - [Tauri](https://tauri.app)
 - [Vue.js](https://cn.vuejs.org/)
-- [ElementPlus](https://element-plus.org/)
+- [Naive UI](https://www.naiveui.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Visual Studio Code](https://code.visualstudio.com/)
+
+## 贡献者
+
+![contrib]
 
 [banner]: https://socialify.git.ci/armoe-project/amcl-app/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2Farmoe-project%2Famcl-app%2Fmain%2Fsrc-tauri%2Ficons%2Ficon.png&owner=1&pulls=1&stargazers=1&theme=Auto
 [node]: https://img.shields.io/badge/node-18-blue?style=for-the-badge
 [pnpm]: https://img.shields.io/github/package-json/packageManager/armoe-project/amcl-app?style=for-the-badge
 [tauri]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/@tauri-apps/api?label=tauri&style=for-the-badge
 [vue]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/vue?style=for-the-badge
-[element-plus]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/element-plus?style=for-the-badge
+[naive-ui]: https://img.shields.io/github/package-json/dependency-version/armoe-project/amcl-app/naive-ui?style=for-the-badge
 [release]: https://img.shields.io/github/v/release/armoe-project/amcl-app?style=for-the-badge
 [license]: https://img.shields.io/github/license/armoe-project/amcl-app?style=for-the-badge
+[contrib]: https://contrib.rocks/image?repo=armoe-project/amcl-app
