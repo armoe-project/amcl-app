@@ -4,7 +4,7 @@
 )]
 
 use fltk::{
-    app::{self, sleep, App},
+    app::{self, App},
     button,
     enums::{Color, FrameType},
     prelude::{GroupExt, WidgetBase, WidgetExt, WindowExt},
@@ -50,6 +50,6 @@ fn create_window() {
 
 fn open_docs(app: App) {
     opener::open("https://amcl.armoe.cn/install").unwrap();
-    sleep(0.1);
+    app::sleep(0.1);
     app.quit();
 }

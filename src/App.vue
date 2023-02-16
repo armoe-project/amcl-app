@@ -1,32 +1,26 @@
 <template>
-  <n-config-provider :locale="zhCN" :date-locale="dateZhCN" :theme-overrides="themeOverrides">
-    <global-toolbar />
-    <router-view />
+  <n-config-provider
+    :locale="zhCN"
+    :date-locale="dateZhCN"
+    v-model:theme-overrides="globalThemeOverrides"
+  >
+    <n-el>
+      <global-toolbar />
+      <router-view />
+    </n-el>
   </n-config-provider>
 </template>
 
 <script lang="ts" setup>
-import { dateZhCN, zhCN, GlobalThemeOverrides } from 'naive-ui'
-
-const themeOverrides: GlobalThemeOverrides = {
-  common: {
-    primaryColor: '#1677ff',
-    primaryColorHover: '#4096ff',
-    primaryColorPressed: '#0958d9',
-    primaryColorSuppl: '#4096ff',
-    infoColor: '#1677ff',
-    infoColorHover: '#4096ff',
-    infoColorPressed: '#0958d9',
-    infoColorSuppl: '#4096ff'
-  }
-}
+import { dateZhCN, zhCN } from 'naive-ui'
+import { globalThemeOverrides } from './global'
 </script>
 
 <style lang="scss">
 :root {
   background-position: center;
   background-size: cover;
-  background-image: url('./assets/images/default-background.jpg');
+  background-image: url('./assets/images/default-background.webp');
 }
 
 body {

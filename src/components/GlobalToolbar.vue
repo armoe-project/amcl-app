@@ -63,7 +63,7 @@ onMounted(async () => {
   height: 30px;
   display: flex;
   position: relative;
-  background-color: rgba($color: #08f, $alpha: 0.5);
+  background-color: var(--primary-color);
 }
 
 .amcl-toolbar-title {
@@ -76,19 +76,12 @@ onMounted(async () => {
 }
 
 .amcl-toolbar-button {
-  margin-left: auto;
-  justify-content: flex-end;
-  :hover,
-  :focus {
-    background-color: rgba($color: #6cf, $alpha: 0.2) !important;
-  }
-
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-100%, -50%);
   button {
-    color: white;
-    :hover,
-    :focus {
-      background: transparent !important;
-    }
+    color: white !important;
   }
 }
 </style>
