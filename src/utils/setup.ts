@@ -4,12 +4,15 @@ import { createI18n } from 'vue-i18n'
 import messages from '@intlify/unplugin-vue-i18n/messages'
 import { App } from 'vue'
 import { useAppStore } from '../stoere'
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { icons } from './icons'
 
 function setupIcon(app: App<Element>) {
-  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component)
-  }
+  icons.forEach((icon) => {
+    library.add(icon)
+  })
+  app.component('font-awesome-icon', FontAwesomeIcon)
 }
 
 function setupRouter(app: App<Element>) {

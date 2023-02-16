@@ -70,7 +70,10 @@
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
         "wix": {
-          "language": ["en-US","zh-CN"]
+          "language": [
+            "en-US",
+            "zh-CN"
+          ]
         }
       }
     },

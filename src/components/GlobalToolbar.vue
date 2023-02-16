@@ -1,30 +1,35 @@
 <template>
   <div data-tauri-drag-region class="amcl-toolbar">
     <span data-tauri-drag-region v-if="!isMacOS" class="amcl-toolbar-title">
-      Armoe Minecraft Launcher
+      Armoe Minecraft Launcher v{{ appVersion }}
     </span>
-    <el-button-group class="amcl-toolbar-button">
-      <el-button
-        v-if="!isIndexPath() && !isHomePath()"
-        text
-        icon="Back"
-        @click="backToParent"
-      ></el-button>
-      <el-button v-if="isHomePath()" text icon="Setting" @click="pushToSettings" />
-      <el-button v-if="!isMacOS" text icon="Minus" @click="minimizeApp" />
-      <el-button v-if="!isMacOS" text icon="Close" @click="closeApp" />
-    </el-button-group>
+    <n-button-group class="amcl-toolbar-button">
+      <n-button v-if="!isIndexPath() && !isHomePath()" quaternary @click="backToParent">
+        <font-awesome-icon icon="fa-solid fa-arrow-left" />
+      </n-button>
+      <n-button v-if="isHomePath()" quaternary @click="pushToSettings">
+        <font-awesome-icon icon="fa-solid fa-gear" />
+      </n-button>
+      <n-button v-if="!isMacOS" quaternary @click="minimizeApp">
+        <font-awesome-icon icon="fa-solid fa-minus" />
+      </n-button>
+      <n-button v-if="!isMacOS" quaternary @click="closeApp">
+        <font-awesome-icon icon="fa-solid fa-xmark" />
+      </n-button>
+    </n-button-group>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { appWindow } from '@tauri-apps/api/window'
 import { platform } from '@tauri-apps/api/os'
+import { getVersion } from '@tauri-apps/api/app'
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
 
 const router = useRouter()
 const isMacOS = ref(false)
+const appVersion = ref()
 
 const isIndexPath = () => {
   return router.currentRoute.value.name == 'Index'
@@ -48,6 +53,7 @@ const closeApp = () => appWindow.close()
 onMounted(async () => {
   const platformName = await platform()
   isMacOS.value = platformName == 'darwin'
+  appVersion.value = await getVersion()
 })
 </script>
 

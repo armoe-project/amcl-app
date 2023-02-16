@@ -7,14 +7,15 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    ElButton: typeof import('element-plus/es')['ElButton']
-    ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
-    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     GlobalToolbar: typeof import('./src/components/GlobalToolbar.vue')['default']
+    NButton: typeof import('naive-ui')['NButton']
+    NButtonGroup: typeof import('naive-ui')['NButtonGroup']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NPopselect: typeof import('naive-ui')['NPopselect']
+    NSpin: typeof import('naive-ui')['NSpin']
+    NTabPane: typeof import('naive-ui')['NTabPane']
+    NTabs: typeof import('naive-ui')['NTabs']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-  }
-  export interface ComponentCustomProperties {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

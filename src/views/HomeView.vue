@@ -1,21 +1,32 @@
 <template>
   <div class="amcl-main">
     <div class="amcl-main-start">
-      <el-button class="amcl-main-start-button" size="large" type="primary">{{
-        $t('app.main.startGame')
-      }}</el-button>
+      <n-button-group>
+        <n-button class="amcl-main-start-button-start" size="large" type="primary">
+          {{ $t('app.main.startGame') }}
+        </n-button>
+        <n-popselect v-model:value="game" :options="gameList" trigger="click" scrollable>
+          <n-button class="amcl-main-start-button-more" size="small" type="primary">
+            <template #icon>
+              <font-awesome-icon icon="fa-solid fa-caret-up" />
+            </template>
+          </n-button>
+        </n-popselect>
+      </n-button-group>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue'
-import { getMCVersions, initMCDir } from '../utils'
+import { ref } from 'vue'
 
-onMounted(async () => {
-  await initMCDir()
-  await getMCVersions()
-})
+const game = ref('1.19.3-Fabric 0.14.11')
+const gameList = ref([
+  {
+    label: '1.19.3-Fabric 0.14.11',
+    value: '1.19.3-Fabric 0.14.11'
+  }
+])
 </script>
 
 <style lang="scss" scoped>
@@ -33,11 +44,13 @@ onMounted(async () => {
   padding-right: 60px;
 }
 
-.amcl-main-start-button {
+.amcl-main-start-button-start {
   height: 50px;
   width: 140px;
-  font-size: 20px;
-  border-style: none;
-  background: rgba($color: #08f, $alpha: 0.8);
+  font-size: 18px;
+}
+.amcl-main-start-button-more {
+  height: 50px;
+  width: 10px;
 }
 </style>
