@@ -22,12 +22,17 @@
           "https://api.github.com/repo/armoe-project/*"
         ]
       },
+      "path": {
+        "all": true
+      },
       "fs": {
         "scope": [
+          "$RESOURCE/AMCL",
+          "$RESOURCE/AMCL/**",
           "$RESOURCE/.minecraft",
-          "$RESOURCE/.minecraft/*",
+          "$RESOURCE/.minecraft/**",
           "$APPDATA/.minecraft",
-          "$APPDATA/.minecraft/*"
+          "$APPDATA/.minecraft/**"
         ],
         "all": true
       },
@@ -36,6 +41,12 @@
         "minimize": true,
         "setDecorations": true,
         "startDragging": true
+      },
+      "protocol": {
+        "asset": true,
+        "assetScope": [
+          "$RESOURCE/AMCL/background/*"
+        ]
       }
     },
     "bundle": {

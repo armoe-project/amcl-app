@@ -1,30 +1,31 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faXmark,
-  faGear,
-  faMinus,
   faArrowLeft,
   faCaretUp,
-  faWindowRestore,
-  faDownload,
-  faPalette,
   faCircleInfo,
-  faRocket
+  faDownload,
+  faGear,
+  faMinus,
+  faPalette,
+  faRocket,
+  faWindowRestore,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons'
+
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { App } from 'vue'
 
 const icons = [
   faArrowLeft,
+  faCaretUp,
+  faCircleInfo,
+  faDownload,
   faGear,
   faMinus,
-  faXmark,
-  faCaretUp,
-  faWindowRestore,
-  faDownload,
   faPalette,
   faRocket,
-  faCircleInfo
+  faWindowRestore,
+  faXmark
 ]
 
 function setupIcons(app: App<Element>) {

@@ -24,6 +24,32 @@
                 @update:value="onLanguageSelect"
               />
             </div>
+            <n-divider />
+            <div class="amcl-settings-item">
+              <span>{{ $t('app.settings.general.background.label') }}</span>
+              <span>{{ backgroundDesc }}</span>
+              <n-select
+                class="amcl-settings-item-select"
+                style="width: 130px; text-align: center"
+                v-model:value="config.background.type"
+                :options="backgroundType"
+                @update:value="onBackgroundSelect"
+              />
+              <n-collapse-transition :show="config.background.type == 'local'">
+                <n-alert class="amcl-settings-background-item" type="info">
+                  {{ $t('app.settings.general.background.local-tips') }}
+                </n-alert>
+              </n-collapse-transition>
+              <n-collapse-transition :show="config.background.type == 'network'">
+                <n-input
+                  class="amcl-settings-background-item"
+                  v-model:value="config.background.network"
+                  type="text"
+                  :placeholder="$t('app.settings.general.background.network-tips')"
+                  @update:value="onBackgroundNetwork"
+                />
+              </n-collapse-transition>
+            </div>
           </n-card>
         </div>
       </n-tab-pane>
@@ -78,6 +104,7 @@
 import { onMounted, ref } from 'vue'
 import { useAppStore, useConfigStore } from '../store'
 import { useI18n } from 'vue-i18n'
+import { getSystemLanguage, setBackground } from '../utils'
 
 const i18n = useI18n()
 const appStore = useAppStore()
@@ -96,6 +123,23 @@ const presetColors = [
   '#FF8833'
 ]
 
+const backgroundType = [
+  {
+    label: '默认',
+    value: 'default'
+  },
+  {
+    label: '本地图片',
+    value: 'local'
+  },
+  {
+    label: '网络图片',
+    value: 'network'
+  }
+]
+
+const backgroundDesc = ref('')
+
 const languageList = [
   {
     label: '跟随系统',
@@ -113,17 +157,39 @@ const languageList = [
 
 const config = ref({
   language: '',
-  themeColor: ''
+  themeColor: '',
+  background: {
+    type: '',
+    network: ''
+  }
 })
 
 const onLanguageSelect = () => {
   const language = config.value.language
   if (language == 'auto') {
-    i18n.locale.value = navigator.language
+    i18n.locale.value = getSystemLanguage()
   } else {
     i18n.locale.value = language
   }
   configStore.setLanguage(language)
+}
+
+const onBackgroundSelect = () => {
+  const background = config.value.background
+  switch (background.type) {
+    case 'default':
+      setBackground('default')
+      break
+    case 'local':
+      setBackground('local')
+      break
+    case 'network':
+      setBackground('network', config.value.background.network)
+  }
+}
+
+const onBackgroundNetwork = () => {
+  setBackground('network', config.value.background.network)
 }
 
 const onColorPicker = () => {
@@ -139,8 +205,10 @@ const onColorPicker = () => {
 onMounted(() => {
   config.value = {
     language: configStore.language,
-    themeColor: configStore.themeColor
+    themeColor: configStore.themeColor,
+    background: configStore.background
   }
+  console.log(config.value)
 })
 </script>
 
@@ -178,5 +246,9 @@ onMounted(() => {
   line-height: 38px;
   width: 100px;
   float: right;
+}
+
+.amcl-settings-background-item {
+  margin-top: 15px;
 }
 </style>

@@ -1,3 +1,4 @@
 import { logger } from './logger'
+import { getSystemLanguage, setBackground } from './common'
 
-export { logger }
+export { logger, getSystemLanguage, setBackground }
