@@ -19,8 +19,4 @@ function setupI18n(app: App<Element>) {
   app.use(i18n)
 }
 
-function setLanguage(language: string) {
-  i18n.global.locale = language
-}
-
-export { setupI18n, setLanguage }
+export { setupI18n }
