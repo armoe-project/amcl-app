@@ -18,9 +18,15 @@
               <span>{{ $t('app.settings.general.language') }}</span>
               <n-select
                 class="amcl-settings-item-select"
-                style="width: 130px; text-align: center"
+                style="width: 150px; text-align: center"
                 v-model:value="config.language"
-                :options="languageList"
+                :options="[
+                  {
+                    label: i18n.t('app.settings.general.language-follow-system'),
+                    value: 'auto'
+                  },
+                  ...languageList
+                ]"
                 @update:value="onLanguageSelect"
               />
             </div>
@@ -30,11 +36,29 @@
               <span>{{ backgroundDesc }}</span>
               <n-select
                 class="amcl-settings-item-select"
-                style="width: 130px; text-align: center"
+                style="width: 150px; text-align: center"
                 v-model:value="config.background.type"
-                :options="backgroundType"
+                :options="[
+                  {
+                    label: $t('app.settings.general.background.default-label'),
+                    value: 'default'
+                  },
+                  {
+                    label: $t('app.settings.general.background.local-label'),
+                    value: 'local'
+                  },
+                  {
+                    label: $t('app.settings.general.background.network-label'),
+                    value: 'network'
+                  }
+                ]"
                 @update:value="onBackgroundSelect"
               />
+              <n-collapse-transition :show="config.background.type == 'default'">
+                <n-alert class="amcl-settings-background-item" type="info">
+                  {{ $t('app.settings.general.background.default-tips') }}
+                </n-alert>
+              </n-collapse-transition>
               <n-collapse-transition :show="config.background.type == 'local'">
                 <n-alert class="amcl-settings-background-item" type="info">
                   {{ $t('app.settings.general.background.local-tips') }}
@@ -70,6 +94,7 @@
                 :show-preview="true"
                 :swatches="presetColors"
                 @update:value="onColorPicker"
+                style="width: 100px"
               />
             </div>
           </n-card>
@@ -123,28 +148,9 @@ const presetColors = [
   '#FF8833'
 ]
 
-const backgroundType = [
-  {
-    label: '默认',
-    value: 'default'
-  },
-  {
-    label: '本地图片',
-    value: 'local'
-  },
-  {
-    label: '网络图片',
-    value: 'network'
-  }
-]
-
 const backgroundDesc = ref('')
 
 const languageList = [
-  {
-    label: '跟随系统',
-    value: 'auto'
-  },
   {
     label: '中文 (简体)',
     value: 'zh-CN'
@@ -244,7 +250,6 @@ onMounted(() => {
 
 .amcl-settings-item-select {
   line-height: 38px;
-  width: 100px;
   float: right;
 }
 

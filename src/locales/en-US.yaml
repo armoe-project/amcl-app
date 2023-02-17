@@ -10,5 +10,14 @@ app:
       about: About
     general:
       language: Language
+      language-follow-system: 'Follow System'
+      background:
+        label: Background Image
+        default-label: 'Default'
+        local-label: 'Local Image'
+        network-label: 'Network Image'
+        default-tips: 'Displays the default background image built into the launcher'
+        local-tips: 'Random display AMCL/background folder image files, support JPG/PNG format.'
+        network-tips: 'Please enter the picture link address, example: https://api.armoe.cn/acg/random'
     appearance:
       themeColor: Theme Color
