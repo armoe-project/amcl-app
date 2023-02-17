@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import IndexView from '../views/IndexView.vue'
 import HomeView from '../views/HomeView.vue'
 import SettingsView from '../views/SettingsView.vue'
+import { App } from 'vue'
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
@@ -23,3 +24,9 @@ export default createRouter({
     }
   ]
 })
+
+function setupRouter(app: App<Element>) {
+  app.use(router)
+}
+
+export { setupRouter }

@@ -1,3 +1,14 @@
 app:
   main:
     startGame: 'Start Game'
+  settings:
+    title:
+      general: General
+      appearance: Appearance
+      download: Download
+      launch: Launch
+      about: About
+    general:
+      language: Language
+    appearance:
+      themeColor: Theme Color

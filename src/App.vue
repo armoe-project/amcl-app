@@ -13,7 +13,11 @@
 
 <script lang="ts" setup>
 import { dateZhCN, zhCN } from 'naive-ui'
-import { globalThemeOverrides } from './global'
+import { storeToRefs } from 'pinia'
+import { useAppStore } from './store'
+
+const store = storeToRefs(useAppStore())
+const globalThemeOverrides = store.globalThemeOverrides
 </script>
 
 <style lang="scss">

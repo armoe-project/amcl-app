@@ -1,3 +1,14 @@
 app:
   main:
     startGame: '开始游戏'
+  settings:
+    title:
+      general: 通用
+      appearance: 外观
+      download: 下载
+      launch: 启动
+      about: 关于
+    general:
+      language: 语言
+    appearance:
+      themeColor: 主题色

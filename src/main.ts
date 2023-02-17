@@ -1,10 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { logger, setupI18n, setupIcon, setupPinia, setupRouter } from './utils'
+import { setupIcons } from './icons'
+import { setupI18n } from './locales'
+import { setupRouter } from './router'
+import { setupPinia } from './store'
+import { logger } from './utils'
 
 const app = createApp(App)
 
-setupIcon(app)
+setupIcons(app)
 setupRouter(app)
 setupPinia(app)
 setupI18n(app)

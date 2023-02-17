@@ -10,28 +10,40 @@
       <n-tab-pane name="general">
         <template #tab>
           <font-awesome-icon icon="fa-solid fa-window-restore" />
-          <span class="amcl-settings-tab-title">通用</span>
-        </template>
-        <div class="amcl-settings-body">通用设置</div>
-      </n-tab-pane>
-      <n-tab-pane name="appearance">
-        <template #tab>
-          <font-awesome-icon icon="fa-solid fa-palette" />
-          <span class="amcl-settings-tab-title">外观</span>
+          <span class="amcl-settings-tab-title">{{ $t('app.settings.title.general') }}</span>
         </template>
         <div class="amcl-settings-body">
           <n-card>
             <div class="amcl-settings-item">
-              <span>主题色</span>
+              <span>{{ $t('app.settings.general.language') }}</span>
+              <n-select
+                class="amcl-settings-item-select"
+                style="width: 130px; text-align: center"
+                v-model:value="config.language"
+                :options="languageList"
+                @update:value="onLanguageSelect"
+              />
+            </div>
+          </n-card>
+        </div>
+      </n-tab-pane>
+      <n-tab-pane name="appearance">
+        <template #tab>
+          <font-awesome-icon icon="fa-solid fa-palette" />
+          <span class="amcl-settings-tab-title">{{ $t('app.settings.title.appearance') }}</span>
+        </template>
+        <div class="amcl-settings-body">
+          <n-card>
+            <div class="amcl-settings-item">
+              <span>{{ $t('app.settings.appearance.themeColor') }}</span>
               <n-color-picker
-                class="amcl-settings-color-picker"
+                class="amcl-settings-item-select"
                 v-model:value="config.themeColor"
                 :modes="['hex']"
                 :show-alpha="false"
                 :show-preview="true"
                 :swatches="presetColors"
-                @complete="onColorPicker"
-                @update-show="onColorPicker"
+                @update:value="onColorPicker"
               />
             </div>
           </n-card>
@@ -40,21 +52,21 @@
       <n-tab-pane name="download">
         <template #tab>
           <font-awesome-icon icon="fa-solid fa-download" />
-          <span class="amcl-settings-tab-title">下载</span>
+          <span class="amcl-settings-tab-title">{{ $t('app.settings.title.download') }}</span>
         </template>
         <div class="amcl-settings-body">下载设置</div>
       </n-tab-pane>
       <n-tab-pane name="launch">
         <template #tab>
           <font-awesome-icon icon="fa-solid fa-rocket" />
-          <span class="amcl-settings-tab-title">启动</span>
+          <span class="amcl-settings-tab-title">{{ $t('app.settings.title.launch') }}</span>
         </template>
         <div class="amcl-settings-body">启动设置</div>
       </n-tab-pane>
       <n-tab-pane name="about">
         <template #tab>
           <font-awesome-icon icon="fa-solid fa-circle-info" />
-          <span class="amcl-settings-tab-title">关于</span>
+          <span class="amcl-settings-tab-title">{{ $t('app.settings.title.about') }}</span>
         </template>
         <div class="amcl-settings-body">关于 Armoe Minecraft Launcher</div>
       </n-tab-pane>
@@ -63,29 +75,73 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { globalThemeOverrides } from '../global'
+import { onMounted, ref } from 'vue'
+import { useAppStore, useConfigStore } from '../store'
+import { useI18n } from 'vue-i18n'
+
+const i18n = useI18n()
+const appStore = useAppStore()
+const configStore = useConfigStore()
+
+const tabIndex = ref('general')
 
 const presetColors = [
-  '#1166FF',
-  '#fb7299',
-  '#ffbb33',
-  '#0f9d58',
-  '#2196f3',
-  '#aa66cc',
-  '#db4437',
-  '#ff8833'
+  '#1677FF',
+  '#fB7299',
+  '#FFBB33',
+  '#0F9D58',
+  '#2196F3',
+  '#AA66CC',
+  '#DB4437',
+  '#FF8833'
+]
+
+const languageList = [
+  {
+    label: '跟随系统',
+    value: 'auto'
+  },
+  {
+    label: '中文 (简体)',
+    value: 'zh-CN'
+  },
+  {
+    label: 'English (US)',
+    value: 'en-US'
+  }
 ]
 
 const config = ref({
-  themeColor: '#1677FF'
+  language: '',
+  themeColor: ''
 })
 
-const onColorPicker = () => {
-  globalThemeOverrides.value.common = {
-    primaryColor: config.value.themeColor
+const onLanguageSelect = () => {
+  const language = config.value.language
+  if (language == 'auto') {
+    i18n.locale.value = navigator.language
+  } else {
+    i18n.locale.value = language
   }
+  configStore.setLanguage(language)
 }
+
+const onColorPicker = () => {
+  const themeColor = config.value.themeColor
+  configStore.setThemeColor(themeColor)
+  appStore.setGlobalThemeOverrides({
+    common: {
+      primaryColor: themeColor
+    }
+  })
+}
+
+onMounted(() => {
+  config.value = {
+    language: configStore.language,
+    themeColor: configStore.themeColor
+  }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -118,7 +174,7 @@ const onColorPicker = () => {
   }
 }
 
-.amcl-settings-color-picker {
+.amcl-settings-item-select {
   line-height: 38px;
   width: 100px;
   float: right;
