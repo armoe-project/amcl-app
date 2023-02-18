@@ -12,38 +12,38 @@
 ![][release]
 ![][license]
 
-简体中文 | [English](README_EN.md)
+[简体中文](README.md) | English
 
 </div>
 
-## 简介
+## Introduction
 
-使用`Tauri` + `Vue` + `Naive UI` 开发的跨平台 Minecraft 启动器
+Cross-platform Minecraft launcher developed with `Tauri` + `Vue` + `Naive UI`
 
-## 待办
+## Todo
 
-- [x] 基本 UI
-- [ ] 游戏启动
-- [ ] 游戏管理
-- [ ] 游戏下载/安装
-- [ ] Mod 加载器自动安装
-- [ ] 微软账号登录
-- [ ] Mod 下载/安装
-- [ ] 整合包导入
-- [ ] 背景音乐/图片设置
+- [x] Basic UI
+- [ ] Game Launch
+- [ ] Game Management
+- [ ] Game Download/Install
+- [ ] Mod loader auto-installation
+- [ ] Microsoft Account Login
+- [ ] Mod Download/Install
+- [ ] Mod package import
+- [ ] Background Music/Image
 
-## 文档
+## Documentation
 
-- [使用文档](https://amcl.armoe.cn/)
-- [开发文档](https://amcl.armoe.cn/dev/runtime.html)
+- [Usage Docs](https://amcl.armoe.cn/en/)
+- [Devlop Docs](https://amcl.armoe.cn/en/dev/runtime.html)
 
-## 反馈
+## Feedback
 
-提交 [Issues](https://github.com/armoe-project/amcl-app/issues)
+Submit [Issues](https://github.com/armoe-project/amcl-app/issues)
 
-## 开源协议
+## Open Source License
 
-本项目使用 [GPL-3.0](LICENSE) 协议开放源代码
+This project is open source under the [GPL-3.0](LICENSE) license.
 
 ```text
 Armoe Minecraft Launcher
@@ -60,7 +60,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ```
 
-## 鸣谢
+## Thanks
 
 - [Tauri](https://tauri.app)
 - [Vue.js](https://cn.vuejs.org/)
@@ -69,7 +69,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 - [TypeScript](https://www.typescriptlang.org/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-## 贡献者
+## Contributors
 
 ![contrib]
 
