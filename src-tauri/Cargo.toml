@@ -14,9 +14,11 @@ version = "1.0.0"
 tauri-build = {version = "1.2", features = [] }
 
 [dependencies]
+tauri = {version = "1.2", features = ["fs-all", "http-all", "os-all", "path-all", "protocol-asset", "window-close", "window-minimize", "window-set-decorations", "window-start-dragging"] }
+
+[target.'cfg(windows)'.dependencies]
 fltk = "^1.2"
 opener = "0.5.2"
-tauri = {version = "1.2", features = ["fs-all", "http-all", "os-all", "path-all", "protocol-asset", "window-close", "window-minimize", "window-set-decorations", "window-start-dragging"] }
 
 [features]
 # by default Tauri runs in production mode

@@ -3,6 +3,7 @@
     windows_subsystem = "windows"
 )]
 
+#[cfg(target_os = "windows")]
 use fltk::{
     app::{self, App},
     button,
@@ -21,11 +22,18 @@ fn main() {
         Ok(())
     });
 
+    #[cfg(not(target_os = "windows"))]
+    builder
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
+
+    #[cfg(target_os = "windows")]
     builder
         .run(tauri::generate_context!())
         .unwrap_or(create_window());
 }
 
+#[cfg(target_os = "windows")]
 fn create_window() {
     let app = app::App::default();
     let mut window =
@@ -48,6 +56,7 @@ fn create_window() {
     app.run().unwrap();
 }
 
+#[cfg(target_os = "windows")]
 fn open_docs(app: App) {
     opener::open("https://amcl.armoe.cn/install").unwrap();
     app::sleep(0.1);
