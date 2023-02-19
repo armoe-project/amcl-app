@@ -6,7 +6,7 @@ license = "GPL-3.0"
 name = "amcl-app"
 repository = "https://github.com/armoe-project/amcl-app"
 rust-version = "1.57"
-version = "1.0.0"
+version = "0.0.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

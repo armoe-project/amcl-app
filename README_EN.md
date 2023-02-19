@@ -12,6 +12,8 @@
 ![][release]
 ![][license]
 
+[Download][download-link] | [Install][install-link] | [Documentation][docs-link] | [Discord][discord-link]
+
 [简体中文](README.md) | English
 
 </div>
@@ -82,3 +84,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 [release]: https://img.shields.io/github/v/release/armoe-project/amcl-app?style=for-the-badge
 [license]: https://img.shields.io/github/license/armoe-project/amcl-app?style=for-the-badge
 [contrib]: https://contrib.rocks/image?repo=armoe-project/amcl-app
+[download-link]: https://amcl.armoe.cn/download
+[install-link]: https://amcl.armoe.cn/install
+[docs-link]: https://amcl.armoe.cn
+[discord-link]: https://discord.gg/twQgJNufYn
