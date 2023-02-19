@@ -75,7 +75,11 @@
       },
       "resources": [],
       "shortDescription": "Armoe Minecraft Launcher",
-      "targets": "all",
+      "targets": [
+        "app",
+        "deb",
+        "dmg"
+      ],
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
