@@ -1,6 +1,7 @@
 import { readDir } from '@tauri-apps/api/fs'
-import { resolveResource } from '@tauri-apps/api/path'
+import { resolve } from '@tauri-apps/api/path'
 import { convertFileSrc } from '@tauri-apps/api/tauri'
+import { appGlobal } from '../app'
 
 function getSystemLanguage() {
   const arr = navigator.language.split('-')
@@ -11,7 +12,7 @@ async function setBackground(type: 'default' | 'local' | 'network', network?: st
   let background = 'url(/images/default-background.jpg)'
   switch (type) {
     case 'local':
-      const backgroundDir = await resolveResource('AMCL/background')
+      const backgroundDir = await resolve(appGlobal.env.dataDir, 'background')
       const backgrounds = await readDir(backgroundDir)
       if (backgrounds.length == 0) break
       const random = Math.floor(Math.random() * backgrounds.length)

@@ -1,5 +1,3 @@
-import SettingsAppearance from './components/SettingsAppearance.vue';
-
 <template>
   <div class="amcl-settings">
     <n-tabs

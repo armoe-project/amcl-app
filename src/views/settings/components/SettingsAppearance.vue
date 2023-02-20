@@ -50,10 +50,3 @@ onMounted(() => {
   themeColor.value = configStore.themeColor
 })
 </script>
-
-<style lang="scss">
-.amcl-settings-body {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-</style>

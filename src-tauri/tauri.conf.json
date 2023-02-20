@@ -27,12 +27,18 @@
       },
       "fs": {
         "scope": [
-          "$RESOURCE/AMCL",
-          "$RESOURCE/AMCL/**",
+          "$RESOURCE/.amcl",
+          "$RESOURCE/.amcl/**",
+          "$HOME/.amcl",
+          "$HOME/.amcl/**",
           "$RESOURCE/.minecraft",
           "$RESOURCE/.minecraft/**",
-          "$APPDATA/.minecraft",
-          "$APPDATA/.minecraft/**"
+          "$DATA/.minecraft",
+          "$DATA/.minecraft/**",
+          "$DATA/minecraft",
+          "$DATA/minecraft/**",
+          "$HOME/.minecraft",
+          "$HOME/.minecraft/**"
         ],
         "all": true
       },
@@ -45,7 +51,7 @@
       "protocol": {
         "asset": true,
         "assetScope": [
-          "$RESOURCE/AMCL/background/*"
+          "$RESOURCE/.amcl/background/*"
         ]
       }
     },
