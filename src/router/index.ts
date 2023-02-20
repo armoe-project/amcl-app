@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import IndexView from '../views/IndexView.vue'
 import HomeView from '../views/HomeView.vue'
-import SettingsView from '../views/SettingsView.vue'
+import SettingsView from '../views/settings/index.vue'
 import { App } from 'vue'
 
 const router = createRouter({
