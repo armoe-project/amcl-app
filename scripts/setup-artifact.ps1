@@ -26,9 +26,9 @@ Write-Host "Arch: ${ARCH}"
 Write-Host "Target: ${TARGET}"
 
 if ($OS -eq "windows") {
-     $RELEASE_DIR = "${WORKSPACE}\src-tauri\target\${TARGET}\release"
-     $ARTIFACT_DIR = "${WORKSPACE}\artifacts\${OS}-${ARCH}"
-     $ARTIFACT_FILE = "amcl-$OS}-${ARCH}.zip"
+     $RELEASE_DIR = "$WORKSPACE\src-tauri\target\$TARGET\release"
+     $ARTIFACT_DIR = "$WORKSPACE\artifacts\$OS-$ARCH"
+     $ARTIFACT_FILE = "amcl-$OS-$ARCH.zip"
      New-Item -ItemType Directory -Path "$ARTIFACT_DIR" -Force
      Compress-Archive -Path "$RELEASE_DIR\Armoe Minecraft Launcher.exe" "$ARTIFACT_DIR\$ARTIFACT_FILE"
      Write-Host "Done!"

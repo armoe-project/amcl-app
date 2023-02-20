@@ -34,12 +34,10 @@ ARTIFACT_FILE="amcl-${OS}-${ARCH}"
 mkdir -p "$ARTIFACT_DIR"
 
 if [[ "${OS}" == "ubuntu" ]]; then
-    tar -zcvf "$ARTIFACT_DIR"/"$ARTIFACT_FILE".tar.gz -C "$RELEASE_DIR" armoe-minecraft-launcher
     cp -r "$RELEASE_DIR"/bundle/deb/*.deb "$ARTIFACT_DIR"/"$ARTIFACT_FILE".deb
     echo "Done!"
     exit 0
 elif [[ "${OS}" == "macos" ]]; then
-    tar -zcvf "$ARTIFACT_DIR"/"$ARTIFACT_FILE".tar.gz -C "$RELEASE_DIR"/bundle/macos Armoe\ Minecraft\ Launcher.app
     cp -r "$RELEASE_DIR"/bundle/dmg/*.dmg "$ARTIFACT_DIR"/"$ARTIFACT_FILE".dmg
     echo "Done!"
     exit 0
