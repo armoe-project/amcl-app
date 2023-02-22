@@ -3,8 +3,7 @@
     "beforeDevCommand": "pnpm vite:dev",
     "beforeBuildCommand": "pnpm vite:build",
     "devPath": "http://localhost:1420",
-    "distDir": "../dist",
-    "withGlobalTauri": false
+    "distDir": "../dist"
   },
   "package": {
     "productName": "Armoe Minecraft Launcher",
@@ -12,6 +11,10 @@
   },
   "tauri": {
     "allowlist": {
+      "shell": {
+        "open": true,
+        "execute": true
+      },
       "os": {
         "all": true
       },
@@ -26,20 +29,6 @@
         "all": true
       },
       "fs": {
-        "scope": [
-          "$RESOURCE/.amcl",
-          "$RESOURCE/.amcl/**",
-          "$HOME/.amcl",
-          "$HOME/.amcl/**",
-          "$RESOURCE/.minecraft",
-          "$RESOURCE/.minecraft/**",
-          "$DATA/.minecraft",
-          "$DATA/.minecraft/**",
-          "$DATA/minecraft",
-          "$DATA/minecraft/**",
-          "$HOME/.minecraft",
-          "$HOME/.minecraft/**"
-        ],
         "all": true
       },
       "window": {
@@ -57,12 +46,8 @@
     },
     "bundle": {
       "active": true,
-      "category": "Utility",
-      "copyright": "©2003 ZhenXin",
-      "deb": {
-        "depends": []
-      },
-      "externalBin": [],
+      "category": "Game",
+      "copyright": "©2023 Armoe Project All Rights Reserved.",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -71,38 +56,13 @@
         "icons/icon.ico"
       ],
       "identifier": "cn.armoe.amcl",
-      "longDescription": "Armoe Cross-platform Minecraft Launcher By: ZhenXin",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
-      "resources": [],
+      "longDescription": "Cross-platform Minecraft Launcher developed using Vue and TypeScript powered by Tauri",
       "shortDescription": "Armoe Minecraft Launcher",
       "targets": [
         "app",
         "deb",
         "dmg"
-      ],
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": "",
-        "wix": {
-          "language": [
-            "en-US",
-            "zh-CN"
-          ]
-        }
-      }
-    },
-    "security": {
-      "csp": null
-    },
-    "updater": {
-      "active": false
+      ]
     },
     "windows": [
       {

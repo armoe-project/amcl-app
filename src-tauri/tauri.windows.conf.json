@@ -1,0 +1,25 @@
+{
+  "tauri": {
+    "allowlist": {
+      "fs": {
+        "scope": [
+          "$RESOURCE/AMCL",
+          "$RESOURCE/AMCL/**",
+          "$RESOURCE/.minecraft",
+          "$RESOURCE/.minecraft/**",
+          "$DATA/.minecraft",
+          "$DATA/.minecraft/**"
+        ]
+      },
+      "shell": {
+        "scope": [
+          {
+            "name": "cmd",
+            "cmd": "cmd",
+            "args": true
+          }
+        ]
+      }
+    }
+  }
+}
