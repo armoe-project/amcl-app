@@ -2,11 +2,11 @@
   <div class="amcl-main">
     <div class="amcl-main-start">
       <n-button-group>
-        <n-button class="amcl-main-start-button-start" size="large" type="primary">
+        <n-button class="amcl-main-start-button" size="large" type="primary">
           {{ $t('app.main.startGame') }}
         </n-button>
         <n-popselect v-model:value="game" :options="gameList" trigger="click" scrollable>
-          <n-button class="amcl-main-start-button-more" size="small" type="primary">
+          <n-button class="amcl-main-start-button" style="width: 10px" size="small" type="primary">
             <template #icon>
               <font-awesome-icon icon="fa-solid fa-caret-up" />
             </template>
@@ -44,13 +44,9 @@ const gameList = ref([
   padding-right: 60px;
 }
 
-.amcl-main-start-button-start {
+.amcl-main-start-button {
   height: 50px;
   width: 140px;
   font-size: 18px;
-}
-.amcl-main-start-button-more {
-  height: 50px;
-  width: 10px;
 }
 </style>

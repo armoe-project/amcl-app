@@ -67,11 +67,10 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useAppStore, useConfigStore } from '../../../store'
+import { useConfigStore } from '../../../store'
 import { getSystemLanguage, setBackground } from '../../../utils'
 
 const i18n = useI18n()
-const appStore = useAppStore()
 const configStore = useConfigStore()
 
 const languageList = [

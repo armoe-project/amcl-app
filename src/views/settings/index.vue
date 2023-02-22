@@ -57,14 +57,12 @@ import SettingsLaunch from './components/SettingsLaunch.vue'
 <style lang="scss" scoped>
 .amcl-settings {
   position: fixed;
-  background-color: rgba($color: #fff, $alpha: 0.5);
-  backdrop-filter: blur(5px);
+  background-color: var(--amcl-bg-color);
   width: 100%;
   height: 100%;
 }
 
 .amcl-settings-tabs {
-  height: 100%;
   user-select: none;
 }
 
@@ -75,12 +73,12 @@ import SettingsLaunch from './components/SettingsLaunch.vue'
 
 <style lang="scss">
 .amcl-settings-body {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .amcl-settings-card {
-  background-color: rgba($color: #fff, $alpha: 0.3) !important;
+  background-color: var(--amcl-bg-color) !important;
   border: 0px !important;
 }
 

@@ -1,8 +1,9 @@
 <template>
   <n-config-provider
-    :locale="zhCN"
-    :date-locale="dateZhCN"
-    v-model:theme-overrides="globalThemeOverrides"
+    v-model:locale="locale.locale"
+    v-model:date-locale="locale.dateLocale"
+    v-model:theme-overrides="vueGlobal.themeOverrides"
+    v-model:theme="vueGlobal.theme"
   >
     <n-el>
       <global-toolbar />
@@ -18,16 +19,33 @@
 </template>
 
 <script lang="ts" setup>
-import { dateZhCN, zhCN } from 'naive-ui'
+import { dateEnUS, dateZhCN, enUS, zhCN } from 'naive-ui'
 import { storeToRefs } from 'pinia'
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { setupApp } from './app'
-import { useAppStore } from './store'
+import { vueGlobal } from './global'
+import { useConfigStore } from './store'
+import { setupTheme } from './theme'
 
-const appStore = storeToRefs(useAppStore())
-const globalThemeOverrides = appStore.globalThemeOverrides
+const configStore = storeToRefs(useConfigStore())
+
+const locale = computed(() => {
+  switch (configStore.language.value) {
+    case 'zh-CN':
+      return {
+        locale: zhCN,
+        dateLocale: dateZhCN
+      }
+    default:
+      return {
+        locale: enUS,
+        dateLocale: dateEnUS
+      }
+  }
+})
 
 onMounted(async () => {
+  setupTheme()
   await setupApp()
 })
 </script>
@@ -44,13 +62,7 @@ body {
   margin: 0 auto;
 }
 
-@font-face {
-  font-family: 'MiSans';
-  src: url('/fonts/MiSans-Regular.woff2') format('woff2');
-}
-
 * {
-  font-family: 'MiSans' !important;
   cursor: default !important;
 }
 

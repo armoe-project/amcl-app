@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 
 interface ConfigStore {
+  theme: 'auto' | 'light' | 'dark'
   language: string
   themeColor: string
   background: {
@@ -11,6 +12,7 @@ interface ConfigStore {
 
 export const useConfigStore = defineStore('config', {
   state: (): ConfigStore => ({
+    theme: 'auto',
     language: 'auto',
     themeColor: '#1166FF',
     background: {
@@ -19,6 +21,9 @@ export const useConfigStore = defineStore('config', {
     }
   }),
   actions: {
+    setTheme(theme: 'auto' | 'light' | 'dark') {
+      this.theme = theme
+    },
     setLanguage(language: string) {
       this.language = language
     },
