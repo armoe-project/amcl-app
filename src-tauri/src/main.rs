@@ -26,6 +26,6 @@ fn runtime_error() {
     let url = "https://amcl.armoe.cn/env/macos.html";
     #[cfg(target_os = "linux")]
     let url = "https://amcl.armoe.cn/env/linux.html";
-    opener::open(url).unwrap();
+    open::that(url).unwrap();
     std::process::exit(0)
 }
