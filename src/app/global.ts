@@ -57,16 +57,6 @@ async function officialMinecraftDir() {
   }
 }
 
-async function tempDir() {
-  switch (appGlobal.os.type) {
-    case 'Darwin':
-      return await resolve(await dataDir(), 'temp')
-    case 'Windows_NT':
-    case 'Linux':
-      return await resolve(await dataDir(), '.temp')
-  }
-}
-
 async function setupAppGlobal() {
   appGlobal.app = {
     appName: await getName(),
@@ -85,7 +75,7 @@ async function setupAppGlobal() {
     dataDir: await dataDir(),
     devMode: devMode(),
     officialMinecraftDir: await officialMinecraftDir(),
-    tempDir: await tempDir()
+    tempDir: await resolve(await dataDir(), 'temp')
   }
 }
 
