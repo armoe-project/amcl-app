@@ -1,4 +1,4 @@
-import { findJavaList } from './java'
+import { getSystemJavaListinPath } from './java'
 import { execShell } from './shell'
 
-export { execShell, findJavaList }
+export { execShell, getSystemJavaListinPath }
