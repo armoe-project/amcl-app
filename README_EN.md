@@ -34,14 +34,10 @@ Cross-platform Minecraft launcher developed with `Tauri` + `Vue` + `Naive UI`
 - [ ] Mod package import
 - [ ] Background Music/Image
 
-## Documentation
-
-- [Usage Docs](https://amcl.armoe.cn/en/)
-- [Devlop Docs](https://amcl.armoe.cn/en/dev/runtime.html)
-
 ## Feedback
 
-Submit [Issues](https://github.com/armoe-project/amcl-app/issues)
+- Submit [Issues](https://github.com/armoe-project/amcl-app/issues)
+- Join [Discord][discord-link]
 
 ## Open Source License
 
@@ -84,7 +80,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 [release]: https://img.shields.io/github/v/release/armoe-project/amcl-app?style=for-the-badge
 [license]: https://img.shields.io/github/license/armoe-project/amcl-app?style=for-the-badge
 [contrib]: https://contrib.rocks/image?repo=armoe-project/amcl-app
-[download-link]: https://amcl.armoe.cn/download.html
-[install-link]: https://amcl.armoe.cn/install/
-[docs-link]: https://amcl.armoe.cn
+[download-link]: https://amcl.armoe.cn/en/download.html
+[install-link]: https://amcl.armoe.cn/en/install/
+[docs-link]: https://amcl.armoe.cn/en/
 [discord-link]: https://discord.gg/twQgJNufYn

@@ -34,14 +34,11 @@
 - [ ] 整合包导入
 - [ ] 背景音乐/图片设置
 
-## 文档
-
-- [使用文档](https://amcl.armoe.cn/)
-- [开发文档](https://amcl.armoe.cn/dev/runtime.html)
-
 ## 反馈
 
-提交 [Issues](https://github.com/armoe-project/amcl-app/issues)
+- 提交 [Issues](https://github.com/armoe-project/amcl-app/issues)
+- 加入 [QQ 群][qq-group-link]
+- 加入 [Discord][discord-link]
 
 ## 开源协议
 
