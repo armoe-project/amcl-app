@@ -17,6 +17,11 @@
             "args": true
           }
         ]
+      },
+      "protocol": {
+        "assetScope": [
+          "$HOME/.amcl/background/*"
+        ]
       }
     }
   }

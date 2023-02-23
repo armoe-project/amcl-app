@@ -38,10 +38,7 @@
         "startDragging": true
       },
       "protocol": {
-        "asset": true,
-        "assetScope": [
-          "$RESOURCE/.amcl/background/*"
-        ]
+        "asset": true
       }
     },
     "bundle": {
