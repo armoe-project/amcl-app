@@ -45,7 +45,7 @@ class Logger {
    * @param tag 标签 默认为 App
    */
   debug(msg: any, tag: string = 'App') {
-    if (appGlobal.env.devMode) {
+    if (appGlobal.config.devMode) {
       this.log(msg, tag, LogType.DEBUG)
     }
   }

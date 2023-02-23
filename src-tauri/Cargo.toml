@@ -11,23 +11,11 @@ version = "0.0.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = {version = "1.2", features = []}
+tauri-build = {version = "1.2", features = [] }
 
 [dependencies]
 open = "3.2.0"
-tauri = {version = "1.2", features = [
-  "fs-all",
-  "http-all",
-  "os-all",
-  "path-all",
-  "protocol-asset",
-  "shell-execute",
-  "shell-open",
-  "window-close",
-  "window-minimize",
-  "window-set-decorations",
-  "window-start-dragging",
-]}
+tauri = {version = "1.2", features = ["devtools", "fs-all", "http-all", "os-all", "path-all", "protocol-asset", "shell-execute", "shell-open", "window-close", "window-minimize", "window-set-decorations", "window-start-dragging"] }
 
 [features]
 # by default Tauri runs in production mode

@@ -12,7 +12,7 @@
   "tauri": {
     "allowlist": {
       "shell": {
-        "open": true,
+        "open": ".*",
         "execute": true
       },
       "os": {

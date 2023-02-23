@@ -21,11 +21,11 @@ fn main() {
 
 fn runtime_error() {
     #[cfg(target_os = "windows")]
-    let url = "https://amcl.armoe.cn/env/windows.html";
+    let url = "https://amcl.armoe.cn/install/windows.html";
     #[cfg(target_os = "macos")]
-    let url = "https://amcl.armoe.cn/env/macos.html";
+    let url = "https://amcl.armoe.cn/install/macos.html";
     #[cfg(target_os = "linux")]
-    let url = "https://amcl.armoe.cn/env/linux.html";
+    let url = "https://amcl.armoe.cn/install/linux.html";
     open::that(url).unwrap();
     std::process::exit(0)
 }

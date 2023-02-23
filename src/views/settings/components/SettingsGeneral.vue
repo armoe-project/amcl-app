@@ -48,6 +48,9 @@
         <n-collapse-transition :show="background.type == 'local'">
           <n-alert class="amcl-settings-background-item" type="info">
             {{ $t('app.settings.general.background.local-tips') }}
+            <n-button text type="primary" style="margin-left: 10px" @click="openBackgroundDir()">
+              {{ $t('app.settings.general.background.local-open') }}
+            </n-button>
           </n-alert>
         </n-collapse-transition>
         <n-collapse-transition :show="background.type == 'network'">
@@ -65,8 +68,10 @@
 </template>
 
 <script lang="ts" setup>
+import { open } from '@tauri-apps/api/shell'
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { appGlobal } from '../../../app'
 import { useConfigStore } from '../../../store'
 import { getSystemLanguage, setBackground } from '../../../utils'
 
@@ -114,6 +119,10 @@ const onBackgroundSelect = () => {
 
 const onBackgroundNetwork = () => {
   setBackground('network', background.value.network)
+}
+
+const openBackgroundDir = async () => {
+  open(appGlobal.path.backgroundDir)
 }
 
 onMounted(() => {

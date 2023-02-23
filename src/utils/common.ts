@@ -12,7 +12,7 @@ async function setBackground(type: 'default' | 'local' | 'network', network?: st
   let background = 'url(/images/default-background.jpg)'
   switch (type) {
     case 'local':
-      const backgroundDir = await resolve(appGlobal.env.dataDir, 'background')
+      const backgroundDir = await resolve(appGlobal.path.dataDir, 'background')
       const backgrounds = await readDir(backgroundDir)
       if (backgrounds.length == 0) break
       const random = Math.floor(Math.random() * backgrounds.length)

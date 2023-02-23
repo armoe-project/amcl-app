@@ -4,14 +4,17 @@ import { createDir, exists } from '@tauri-apps/api/fs'
 import { appGlobal, setupAppGlobal } from './global'
 
 async function initializeDirectory() {
-  const dataDir = appGlobal.env.dataDir
+  const dataDir = appGlobal.path.dataDir
   if (!(await exists(dataDir))) await createDir(dataDir)
 
-  const backgroundDir = appGlobal.env.backgroundDir
+  const backgroundDir = appGlobal.path.backgroundDir
   if (!(await exists(backgroundDir))) await createDir(backgroundDir)
 
-  const tempDir = appGlobal.env.tempDir
-  if (!(await exists(tempDir))) await createDir(tempDir)
+  const downloadDir = appGlobal.path.downloadDir
+  if (!(await exists(downloadDir))) await createDir(downloadDir)
+
+  const minecraftDir = appGlobal.path.minecraftDir
+  if (!(await exists(minecraftDir))) await createDir(minecraftDir)
 }
 
 async function setupBackground() {
@@ -25,9 +28,14 @@ async function setupApp() {
   await initializeDirectory()
   await setupBackground()
 
-  logger.info('Armoe Minecraft Launcher')
-  logger.info('文档: https://amcl.armoe.cn')
+  logger.info(appGlobal.app.appName)
+  logger.info('Homepage: https://amcl.armoe.cn')
   logger.info('Github: https://github.com/armoe-project/amcl-app')
+
+  const os = appGlobal.os
+  logger.info(`Operating System: ${os.type} ${os.version} (${os.arch})`)
+  logger.info(`App Version: ${appGlobal.app.appVersion}`)
+  logger.info(`Tauri Version: ${appGlobal.app.tauriVersion}`)
 
   logger.debug(appGlobal)
 }

@@ -2,9 +2,10 @@ import { darkTheme, useOsTheme } from 'naive-ui'
 import { watch } from 'vue'
 import { vueGlobal } from '../global'
 import { useConfigStore } from '../store'
+import { logger } from '../utils'
 
 function setTheme(theme: 'dark' | 'light' | null) {
-  console.log(theme)
+  logger.info(`Theme: ${theme}`)
   if (theme == 'dark') {
     document.documentElement.style.setProperty('--amcl-bg-color', 'rgba(0, 0, 0, 0.65)')
     vueGlobal.value.theme = darkTheme

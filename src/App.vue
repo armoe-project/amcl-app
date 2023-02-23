@@ -45,8 +45,8 @@ const locale = computed(() => {
 })
 
 onMounted(async () => {
-  setupTheme()
   await setupApp()
+  setupTheme()
 })
 </script>
 

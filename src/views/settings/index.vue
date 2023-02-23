@@ -73,8 +73,8 @@ import SettingsLaunch from './components/SettingsLaunch.vue'
 
 <style lang="scss">
 .amcl-settings-body {
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .amcl-settings-card {

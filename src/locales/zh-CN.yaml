@@ -17,7 +17,8 @@ app:
         local-label: '本地图片'
         network-label: '网络图片'
         default-tips: '显示启动器内置的默认背景图片'
-        local-tips: '随机显示 AMCL/background 文件夹内图片文件, 支持 JPG/PNG 格式.'
+        local-tips: '随机显示背景图片目录内图片文件, 支持 JPG/PNG 格式.'
+        local-open: '打开目录'
         network-tips: '请输入图片直链地址, 如: https://api.armoe.cn/acg/random'
     appearance:
       themeColor: 主题色

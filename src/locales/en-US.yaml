@@ -17,7 +17,8 @@ app:
         local-label: 'Local Image'
         network-label: 'Network Image'
         default-tips: 'Displays the default background image built into the launcher'
-        local-tips: 'Random display AMCL/background folder image files, support JPG/PNG format.'
+        local-tips: 'Random display background image directory image files, support JPG/PNG format.'
+        local-open: 'Open Directory'
         network-tips: 'Please enter the picture link address, example: https://api.armoe.cn/acg/random'
     appearance:
       themeColor: Theme Color
