@@ -55,7 +55,12 @@
           <div>鸣谢</div>
           <div class="amcl-settings-divider" />
           <n-space>
-            <n-button quaternary v-for="item in openSourceItems" @click="open(item.link)">
+            <n-button
+              quaternary
+              size="small"
+              v-for="item in openSourceItems"
+              @click="open(item.link)"
+            >
               {{ item.name }}
             </n-button>
           </n-space>
