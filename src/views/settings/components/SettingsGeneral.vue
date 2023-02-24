@@ -118,14 +118,18 @@ const onBackgroundSelect = () => {
   }
   setConfig({
     background: {
-      type: background.value.type as any,
-      network: background.value.network
+      type: background.value.type as any
     }
   })
 }
 
 const onBackgroundNetwork = () => {
   setBackground('network', background.value.network)
+  setConfig({
+    background: {
+      network: background.value.network
+    }
+  })
 }
 
 const openBackgroundDir = async () => {
