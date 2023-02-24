@@ -81,6 +81,7 @@ onMounted(async () => {
   left: 100%;
   transform: translate(-100%, -50%);
   button {
+    height: 30px;
     color: white !important;
   }
 }

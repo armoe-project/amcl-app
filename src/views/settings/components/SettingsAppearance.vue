@@ -10,7 +10,7 @@
           :show-alpha="false"
           :show-preview="true"
           :swatches="presetThemeColors"
-          @update:value="onThemeColorPicker"
+          @update:show="onThemeColorPicker"
         />
       </div>
     </n-card>
@@ -21,9 +21,10 @@
 import { onMounted, ref } from 'vue'
 import { config } from '../../../app'
 import { vueGlobal } from '../../../global'
+import { generateTheme } from '../../../theme'
 
 const presetThemeColors = [
-  '#1677FF',
+  '#0088FF',
   '#fB7299',
   '#FFBB33',
   '#0F9D58',
@@ -37,11 +38,8 @@ const themeColor = ref('')
 
 const onThemeColorPicker = () => {
   config.themeColor = themeColor.value
-  vueGlobal.value.themeOverrides = {
-    common: {
-      primaryColor: themeColor.value
-    }
-  }
+  const theme = generateTheme(config.themeColor)
+  vueGlobal.value.themeOverrides.common = theme
 }
 
 onMounted(() => {

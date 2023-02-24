@@ -6,6 +6,7 @@ import { watch } from 'vue'
 import { appGlobal, config } from '../app'
 import { vueGlobal } from '../global'
 import { logger } from '../utils'
+import { generateTheme } from './generator'
 
 async function setBackground(type: 'default' | 'local' | 'network', network?: string) {
   let background = 'url(/images/default-background.jpg)'
@@ -36,6 +37,8 @@ function setTheme(theme: 'dark' | 'light' | null) {
     document.documentElement.style.setProperty('--amcl-bg-color', 'rgba(255, 255, 255, 0.5)')
     vueGlobal.value.theme = null
   }
+
+  vueGlobal.value.themeOverrides.common = generateTheme(config.themeColor)
 }
 
 function setupTheme() {
@@ -55,6 +58,9 @@ function setupTheme() {
 
   const background = config.background
   setBackground(background.type, background.network)
+
+  const theme = generateTheme(config.themeColor)
+  vueGlobal.value.themeOverrides.common = theme
 }
 
-export { setupTheme, setBackground }
+export { setupTheme, setBackground, generateTheme }
