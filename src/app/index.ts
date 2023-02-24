@@ -34,4 +34,4 @@ async function setupApp() {
   logger.debug(appGlobal)
 }
 
-export { setupApp, appGlobal as appGlobal, config, setConfig }
+export { setupApp, appGlobal, config, setConfig }

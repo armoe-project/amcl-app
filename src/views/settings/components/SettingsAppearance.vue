@@ -2,6 +2,30 @@
   <div class="amcl-settings-body">
     <n-card class="amcl-settings-card">
       <div>
+        <span class="amcl-settings-label">{{ $t('app.settings.appearance.theme.label') }}</span>
+        <n-select
+          class="amcl-settings-item"
+          style="width: 150px; text-align: center"
+          v-model:value="theme"
+          :options="[
+            {
+              label: $t('app.common.follow-system'),
+              value: 'auto'
+            },
+            {
+              label: $t('app.settings.appearance.theme.dark'),
+              value: 'dark'
+            },
+            {
+              label: $t('app.settings.appearance.theme.light'),
+              value: 'light'
+            }
+          ]"
+          @update:value="onThemeModeSelect"
+        />
+      </div>
+      <div class="amcl-settings-divider" />
+      <div>
         <span class="amcl-settings-label">{{ $t('app.settings.appearance.themeColor') }}</span>
         <n-color-picker
           class="amcl-settings-item"
@@ -20,7 +44,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { appGlobal, config, setConfig } from '../../../app'
-import { generateTheme } from '../../../theme'
+import { generateTheme, setTheme } from '../../../theme'
 
 const presetThemeColors = [
   '#0088FF',
@@ -33,7 +57,15 @@ const presetThemeColors = [
   '#FF8833'
 ]
 
-const themeColor = ref('')
+const theme = ref<'auto' | 'dark' | 'light'>('auto')
+const themeColor = ref()
+
+const onThemeModeSelect = () => {
+  setTheme(theme.value)
+  setConfig({
+    theme: theme.value
+  })
+}
 
 const onThemeColorPicker = () => {
   setConfig({

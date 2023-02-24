@@ -1,6 +1,8 @@
 app:
+  common:
+    follow-system: Follow System
   main:
-    startGame: 'Start Game'
+    startGame: Start Game
   settings:
     title:
       general: General
@@ -10,15 +12,18 @@ app:
       about: About
     general:
       language: Language
-      language-follow-system: 'Follow System'
       background:
         label: Background Image
-        default-label: 'Default'
-        local-label: 'Local Image'
-        network-label: 'Network Image'
-        default-tips: 'Displays the default background image built into the launcher'
-        local-tips: 'Random display background image directory image files, support JPG/PNG format.'
-        local-open: 'Open Directory'
+        default-label: Default
+        local-label: Local Image
+        network-label: Network Image
+        default-tips: Displays the default background image built into the launcher
+        local-tips: Random display background image directory image files, support JPG/PNG format.
+        local-open: Open Directory
         network-tips: 'Please enter the picture link address, example: https://api.armoe.cn/acg/random'
     appearance:
+      theme:
+        label: Theme Mode
+        dark: Dark
+        light: Light
       themeColor: Theme Color

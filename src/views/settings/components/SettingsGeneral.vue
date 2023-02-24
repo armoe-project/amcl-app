@@ -9,7 +9,7 @@
           v-model:value="language"
           :options="[
             {
-              label: $t('app.settings.general.language-follow-system'),
+              label: $t('app.common.follow-system'),
               value: 'auto'
             },
             ...languageList

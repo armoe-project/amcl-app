@@ -22,10 +22,9 @@
 
 <script lang="ts" setup>
 import { appWindow } from '@tauri-apps/api/window'
-import { platform } from '@tauri-apps/api/os'
-import { getVersion } from '@tauri-apps/api/app'
 import { useRouter } from 'vue-router'
 import { onMounted, ref } from 'vue'
+import { appGlobal } from '../app'
 
 const router = useRouter()
 const isMacOS = ref(false)
@@ -46,14 +45,13 @@ const pushToSettings = async () => {
   await router.push('settings')
 }
 
-const minimizeApp = (e: any) => appWindow.minimize()
+const minimizeApp = () => appWindow.minimize()
 
 const closeApp = () => appWindow.close()
 
-onMounted(async () => {
-  const platformName = await platform()
-  isMacOS.value = platformName == 'darwin'
-  appVersion.value = await getVersion()
+onMounted(() => {
+  isMacOS.value = appGlobal.os.type == 'Darwin'
+  appVersion.value = appGlobal.app.appVersion
 })
 </script>
 
