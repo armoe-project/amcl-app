@@ -53,4 +53,27 @@ async function saveConfig() {
   await writeTextFile(file, json)
 }
 
-export { config, setupConfig, saveConfig }
+async function setConfig(cfg: {
+  theme?: 'auto' | 'dark' | 'light'
+  language?: string
+  themeColor?: string
+  background?: {
+    type?: 'default' | 'local' | 'network'
+    network?: string
+  }
+  java?: {
+    use?: string
+    list?: JavaInfo[]
+  }
+}) {
+  if (cfg.theme) config.theme = cfg.theme
+  if (cfg.language) config.language = cfg.language
+  if (cfg.themeColor) config.themeColor = cfg.themeColor
+  if (cfg.background?.type) config.background.type = cfg.background.type
+  if (cfg.background?.network) config.background.network = cfg.background.network
+  if (cfg.java?.use) config.java.use = cfg.java.use
+  if (cfg.java?.list) config.java.list = cfg.java.list
+  await saveConfig()
+}
+
+export { config, setupConfig, setConfig }

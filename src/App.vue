@@ -21,8 +21,9 @@
 <script lang="ts" setup>
 import { dateEnUS, dateZhCN, enUS, zhCN } from 'naive-ui'
 import { computed } from 'vue'
-import { config } from './app'
-import { vueGlobal } from './global'
+import { appGlobal, config } from './app'
+
+const vueGlobal = appGlobal.vue
 
 const locale = computed(() => {
   switch (config.language) {

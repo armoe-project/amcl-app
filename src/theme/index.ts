@@ -4,7 +4,6 @@ import { convertFileSrc } from '@tauri-apps/api/tauri'
 import { darkTheme, useOsTheme } from 'naive-ui'
 import { watch } from 'vue'
 import { appGlobal, config } from '../app'
-import { vueGlobal } from '../global'
 import { logger } from '../utils'
 import { generateTheme } from './generator'
 
@@ -32,13 +31,13 @@ function setTheme(theme: 'dark' | 'light' | null) {
   logger.info(`Theme: ${theme}`)
   if (theme == 'dark') {
     document.documentElement.style.setProperty('--amcl-bg-color', 'rgba(0, 0, 0, 0.65)')
-    vueGlobal.value.theme = darkTheme
+    appGlobal.vue.value.theme = darkTheme
   } else {
     document.documentElement.style.setProperty('--amcl-bg-color', 'rgba(255, 255, 255, 0.5)')
-    vueGlobal.value.theme = null
+    appGlobal.vue.value.theme = null
   }
 
-  vueGlobal.value.themeOverrides.common = generateTheme(config.themeColor)
+  appGlobal.vue.value.themeOverrides.common = generateTheme(config.themeColor)
 }
 
 function setupTheme() {
@@ -60,7 +59,7 @@ function setupTheme() {
   setBackground(background.type, background.network)
 
   const theme = generateTheme(config.themeColor)
-  vueGlobal.value.themeOverrides.common = theme
+  appGlobal.vue.value.themeOverrides.common = theme
 }
 
 export { setupTheme, setBackground, generateTheme }

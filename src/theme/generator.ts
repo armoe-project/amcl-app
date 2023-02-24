@@ -1,4 +1,4 @@
-import { blue, generate } from '@ant-design/colors'
+import { generate } from '@ant-design/colors'
 import { useOsTheme } from 'naive-ui'
 import { config } from '../app'
 

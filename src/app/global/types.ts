@@ -1,4 +1,6 @@
 import { Arch, Platform, OsType } from '@tauri-apps/api/os'
+import { GlobalThemeOverrides } from 'naive-ui'
+import { BuiltInGlobalTheme } from 'naive-ui/es/themes/interface'
 
 interface App {
   appName: string
@@ -24,4 +26,9 @@ interface Path {
   minecraftDir: string
 }
 
-export type { App, Config, Os, Path }
+interface Vue {
+  theme: BuiltInGlobalTheme | null
+  themeOverrides: GlobalThemeOverrides
+}
+
+export type { App, Config, Os, Path, Vue }

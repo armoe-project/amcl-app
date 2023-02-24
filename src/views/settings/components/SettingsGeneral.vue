@@ -71,7 +71,7 @@
 import { open } from '@tauri-apps/api/shell'
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { config, appGlobal } from '../../../app'
+import { config, appGlobal, setConfig } from '../../../app'
 import { setBackground } from '../../../theme'
 import { getSystemLanguage } from '../../../utils'
 
@@ -100,7 +100,9 @@ const onLanguageSelect = () => {
   } else {
     i18n.locale.value = language.value
   }
-  config.language = language.value
+  setConfig({
+    language: language.value
+  })
 }
 
 const onBackgroundSelect = () => {
@@ -114,6 +116,12 @@ const onBackgroundSelect = () => {
     case 'network':
       setBackground('network', background.value.network)
   }
+  setConfig({
+    background: {
+      type: background.value.type as any,
+      network: background.value.network
+    }
+  })
 }
 
 const onBackgroundNetwork = () => {

@@ -19,8 +19,7 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import { config } from '../../../app'
-import { vueGlobal } from '../../../global'
+import { appGlobal, config, setConfig } from '../../../app'
 import { generateTheme } from '../../../theme'
 
 const presetThemeColors = [
@@ -37,9 +36,11 @@ const presetThemeColors = [
 const themeColor = ref('')
 
 const onThemeColorPicker = () => {
-  config.themeColor = themeColor.value
+  setConfig({
+    themeColor: themeColor.value
+  })
   const theme = generateTheme(config.themeColor)
-  vueGlobal.value.themeOverrides.common = theme
+  appGlobal.vue.value.themeOverrides.common = theme
 }
 
 onMounted(() => {

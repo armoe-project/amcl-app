@@ -1,7 +1,7 @@
 import { logger } from '../utils'
 import { createDir, exists } from '@tauri-apps/api/fs'
 import { appGlobal, setupAppGlobal } from './global'
-import { config, setupConfig } from './config'
+import { config, setConfig, setupConfig } from './config'
 
 async function initializeDirectory() {
   const dataDir = appGlobal.path.dataDir
@@ -34,4 +34,4 @@ async function setupApp() {
   logger.debug(appGlobal)
 }
 
-export { setupApp, appGlobal, config }
+export { setupApp, appGlobal as appGlobal, config, setConfig }
