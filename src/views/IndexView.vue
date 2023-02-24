@@ -28,8 +28,7 @@ onMounted(() => {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba($color: #fff, $alpha: 0.3);
-  backdrop-filter: blur(5px);
+  background-color: var(--amcl-bg-color);
 }
 
 .amcl-index-loading {

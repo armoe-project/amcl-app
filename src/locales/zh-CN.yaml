@@ -27,3 +27,12 @@ app:
         dark: 深色
         light: 浅色
       themeColor: 主题色
+    about:
+      description: 使用 Vue 和 TypeScript 开发的跨平台 Minecraft 启动器, 由 Tauri 驱动.
+      check-update: '检查更新'
+      latest-version: '已是最新版本'
+      github: Github
+      discord: Discord
+      qq-group: QQ 群
+      usage-docs: 使用文档
+      faq: 常见问题

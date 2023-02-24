@@ -27,3 +27,12 @@ app:
         dark: Dark
         light: Light
       themeColor: Theme Color
+    about:
+      description: Cross-platform Minecraft Launcher developed using Vue and TypeScript powered by Tauri
+      check-update: Check Update
+      latest-version: Is the latest version
+      github: Github
+      discord: Discord
+      qq-group: QQ Group
+      usage-docs: Usage Docs
+      faq: FAQ
