@@ -11,7 +11,7 @@ function formatJavaVersion(path: string, info: string) {
   }
 }
 
-async function getSystemJavaListinPath() {
+async function getSystemJavaListInPath() {
   const javaList: any[] = []
   let cmd = 'which'
   if (appGlobal.os.type == 'Windows_NT') cmd = 'where'
@@ -29,4 +29,4 @@ async function getSystemJavaListinPath() {
   return javaList
 }
 
-export { getSystemJavaListinPath }
+export { getSystemJavaListInPath }

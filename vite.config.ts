@@ -38,6 +38,21 @@ export default defineConfig({
     minify: !process.env.TAURI_DEBUG ? 'esbuild' : false,
     // produce sourcemaps for debug builds
     sourcemap: !!process.env.TAURI_DEBUG,
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('tauri-apps')) {
+            return 'tauri-apps'
+          } else if (id.includes('naive-ui')) {
+            return 'naive-ui'
+          } else if (id.includes('fortawesome')) {
+            return 'fortawesome'
+          } else if (id.includes('node_modules')) {
+            return 'vendor'
+          }
+        }
+      }
+    }
   }
 })

@@ -44,7 +44,7 @@
     "bundle": {
       "active": true,
       "category": "Game",
-      "copyright": "©2023 Armoe Project All Rights Reserved.",
+      "copyright": "Copyright (c) 2023 Armoe Project All Rights Reserved.",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",

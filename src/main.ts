@@ -1,15 +1,20 @@
 import { createApp } from 'vue'
+import { setupApp } from './app'
 import App from './App.vue'
 import { setupIcons } from './icons'
 import { setupI18n } from './locales'
 import { setupRouter } from './router'
-import { setupPinia } from './store'
+import { setupTheme } from './theme'
 
 const app = createApp(App)
 
-setupIcons(app)
-setupRouter(app)
-setupPinia(app)
-setupI18n(app)
+async function setup() {
+  await setupApp()
+  setupIcons(app)
+  setupRouter(app)
+  setupI18n(app)
+  app.mount('#app')
+  setupTheme()
+}
 
-app.mount('#app')
+setup()

@@ -20,17 +20,12 @@
 
 <script lang="ts" setup>
 import { dateEnUS, dateZhCN, enUS, zhCN } from 'naive-ui'
-import { storeToRefs } from 'pinia'
-import { computed, onMounted } from 'vue'
-import { setupApp } from './app'
+import { computed } from 'vue'
+import { config } from './app'
 import { vueGlobal } from './global'
-import { useConfigStore } from './store'
-import { setupTheme } from './theme'
-
-const configStore = storeToRefs(useConfigStore())
 
 const locale = computed(() => {
-  switch (configStore.language.value) {
+  switch (config.language) {
     case 'zh-CN':
       return {
         locale: zhCN,
@@ -42,11 +37,6 @@ const locale = computed(() => {
         dateLocale: dateEnUS
       }
   }
-})
-
-onMounted(async () => {
-  await setupApp()
-  setupTheme()
 })
 </script>
 

@@ -19,10 +19,8 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
+import { config } from '../../../app'
 import { vueGlobal } from '../../../global'
-import { useConfigStore } from '../../../store'
-
-const configStore = useConfigStore()
 
 const presetThemeColors = [
   '#1677FF',
@@ -38,7 +36,7 @@ const presetThemeColors = [
 const themeColor = ref('')
 
 const onThemeColorPicker = () => {
-  configStore.setThemeColor(themeColor.value)
+  config.themeColor = themeColor.value
   vueGlobal.value.themeOverrides = {
     common: {
       primaryColor: themeColor.value
@@ -47,6 +45,6 @@ const onThemeColorPicker = () => {
 }
 
 onMounted(() => {
-  themeColor.value = configStore.themeColor
+  themeColor.value = config.themeColor
 })
 </script>

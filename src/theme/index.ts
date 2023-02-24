@@ -1,8 +1,31 @@
+import { readDir } from '@tauri-apps/api/fs'
+import { resolve } from '@tauri-apps/api/path'
+import { convertFileSrc } from '@tauri-apps/api/tauri'
 import { darkTheme, useOsTheme } from 'naive-ui'
 import { watch } from 'vue'
+import { appGlobal, config } from '../app'
 import { vueGlobal } from '../global'
-import { useConfigStore } from '../store'
 import { logger } from '../utils'
+
+async function setBackground(type: 'default' | 'local' | 'network', network?: string) {
+  let background = 'url(/images/default-background.jpg)'
+  switch (type) {
+    case 'local':
+      const backgroundDir = await resolve(appGlobal.path.dataDir, 'background')
+      const backgrounds = await readDir(backgroundDir)
+      if (backgrounds.length == 0) break
+      const random = Math.floor(Math.random() * backgrounds.length)
+      const bg = backgrounds[random]
+      const url = convertFileSrc(bg.path)
+      background = `url(${url})`
+      break
+    case 'network':
+      if (network == '') break
+      background = `url(${network})`
+  }
+  const element = document.documentElement
+  element.style.setProperty('background-image', background)
+}
 
 function setTheme(theme: 'dark' | 'light' | null) {
   logger.info(`Theme: ${theme}`)
@@ -16,10 +39,9 @@ function setTheme(theme: 'dark' | 'light' | null) {
 }
 
 function setupTheme() {
-  const configStore = useConfigStore()
   const osTheme = useOsTheme()
 
-  switch (configStore.theme) {
+  switch (config.theme) {
     case 'auto':
       watch(osTheme, (value) => setTheme(value), { immediate: true })
       break
@@ -30,6 +52,9 @@ function setupTheme() {
       setTheme('light')
       break
   }
+
+  const background = config.background
+  setBackground(background.type, background.network)
 }
 
-export { setupTheme }
+export { setupTheme, setBackground }

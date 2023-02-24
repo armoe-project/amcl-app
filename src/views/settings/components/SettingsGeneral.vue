@@ -71,12 +71,11 @@
 import { open } from '@tauri-apps/api/shell'
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { appGlobal } from '../../../app'
-import { useConfigStore } from '../../../store'
-import { getSystemLanguage, setBackground } from '../../../utils'
+import { config, appGlobal } from '../../../app'
+import { setBackground } from '../../../theme'
+import { getSystemLanguage } from '../../../utils'
 
 const i18n = useI18n()
-const configStore = useConfigStore()
 
 const languageList = [
   {
@@ -101,7 +100,7 @@ const onLanguageSelect = () => {
   } else {
     i18n.locale.value = language.value
   }
-  configStore.setLanguage(language.value)
+  config.language = language.value
 }
 
 const onBackgroundSelect = () => {
@@ -126,8 +125,8 @@ const openBackgroundDir = async () => {
 }
 
 onMounted(() => {
-  language.value = configStore.language
-  background.value = configStore.background
+  language.value = config.language
+  background.value = config.background
 })
 </script>
 

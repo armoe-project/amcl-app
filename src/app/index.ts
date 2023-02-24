@@ -1,7 +1,7 @@
-import { useConfigStore } from '../store'
-import { logger, setBackground } from '../utils'
+import { logger } from '../utils'
 import { createDir, exists } from '@tauri-apps/api/fs'
 import { appGlobal, setupAppGlobal } from './global'
+import { config, setupConfig } from './config'
 
 async function initializeDirectory() {
   const dataDir = appGlobal.path.dataDir
@@ -17,16 +17,10 @@ async function initializeDirectory() {
   if (!(await exists(minecraftDir))) await createDir(minecraftDir)
 }
 
-async function setupBackground() {
-  const configStore = useConfigStore()
-  const background = configStore.background
-  setBackground(background.type, background.network)
-}
-
 async function setupApp() {
   await setupAppGlobal()
   await initializeDirectory()
-  await setupBackground()
+  await setupConfig()
 
   logger.info(appGlobal.app.appName)
   logger.info('Homepage: https://amcl.armoe.cn')
@@ -40,4 +34,4 @@ async function setupApp() {
   logger.debug(appGlobal)
 }
 
-export { setupApp, appGlobal }
+export { setupApp, appGlobal, config }
