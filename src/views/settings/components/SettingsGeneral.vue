@@ -1,68 +1,64 @@
 <template>
   <div class="amcl-settings-body">
     <n-card class="amcl-settings-card">
-      <div>
-        <span class="amcl-settings-label">{{ $t('app.settings.general.language') }}</span>
-        <n-select
-          class="amcl-settings-item"
-          style="width: 150px; text-align: center"
-          v-model:value="language"
-          :options="[
-            {
-              label: $t('app.common.follow-system'),
-              value: 'auto'
-            },
-            ...languageList
-          ]"
-          @update:value="onLanguageSelect"
-        />
-      </div>
+      <span class="amcl-settings-label">{{ $t('app.settings.general.language') }}</span>
+      <n-select
+        class="amcl-settings-item"
+        style="width: 150px; text-align: center"
+        v-model:value="language"
+        :options="[
+          {
+            label: $t('app.common.follow-system'),
+            value: 'auto'
+          },
+          ...languageList
+        ]"
+        @update:value="onLanguageSelect"
+      />
       <div class="amcl-settings-divider" />
-      <div>
-        <span class="amcl-settings-label">{{ $t('app.settings.general.background.label') }}</span>
-        <n-select
-          class="amcl-settings-item"
-          style="width: 150px; text-align: center"
-          v-model:value="background.type"
-          :options="[
-            {
-              label: $t('app.settings.general.background.default-label'),
-              value: 'default'
-            },
-            {
-              label: $t('app.settings.general.background.local-label'),
-              value: 'local'
-            },
-            {
-              label: $t('app.settings.general.background.network-label'),
-              value: 'network'
-            }
-          ]"
-          @update:value="onBackgroundSelect"
+      <span class="amcl-settings-label">{{ $t('app.settings.general.background.label') }}</span>
+      <n-select
+        class="amcl-settings-item"
+        style="width: 150px; text-align: center"
+        v-model:value="background.type"
+        :options="[
+          {
+            label: $t('app.settings.general.background.default-label'),
+            value: 'default'
+          },
+          {
+            label: $t('app.settings.general.background.local-label'),
+            value: 'local'
+          },
+          {
+            label: $t('app.settings.general.background.network-label'),
+            value: 'network'
+          }
+        ]"
+        @update:value="onBackgroundSelect"
+      />
+      <n-collapse-transition :show="background.type == 'default'">
+        <n-alert class="amcl-settings-background-item" type="info">
+          {{ $t('app.settings.general.background.default-tips') }}
+        </n-alert>
+      </n-collapse-transition>
+      <n-collapse-transition :show="background.type == 'local'">
+        <n-alert class="amcl-settings-background-item" type="info">
+          {{ $t('app.settings.general.background.local-tips') }}
+          <n-button text type="primary" style="margin-left: 10px" @click="openBackgroundDir()">
+            {{ $t('app.settings.general.background.local-open') }}
+          </n-button>
+        </n-alert>
+      </n-collapse-transition>
+      <n-collapse-transition :show="background.type == 'network'">
+        <n-input
+          class="amcl-settings-background-item"
+          v-model:value="background.network"
+          type="text"
+          :placeholder="$t('app.settings.general.background.network-tips')"
+          @update:value="onBackgroundNetwork"
         />
-        <n-collapse-transition :show="background.type == 'default'">
-          <n-alert class="amcl-settings-background-item" type="info">
-            {{ $t('app.settings.general.background.default-tips') }}
-          </n-alert>
-        </n-collapse-transition>
-        <n-collapse-transition :show="background.type == 'local'">
-          <n-alert class="amcl-settings-background-item" type="info">
-            {{ $t('app.settings.general.background.local-tips') }}
-            <n-button text type="primary" style="margin-left: 10px" @click="openBackgroundDir()">
-              {{ $t('app.settings.general.background.local-open') }}
-            </n-button>
-          </n-alert>
-        </n-collapse-transition>
-        <n-collapse-transition :show="background.type == 'network'">
-          <n-input
-            class="amcl-settings-background-item"
-            v-model:value="background.network"
-            type="text"
-            :placeholder="$t('app.settings.general.background.network-tips')"
-            @update:value="onBackgroundNetwork"
-          />
-        </n-collapse-transition>
-      </div>
+      </n-collapse-transition>
     </n-card>
   </div>
 </template>

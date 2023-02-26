@@ -49,6 +49,9 @@ const locale = computed(() => {
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
+  ::-webkit-scrollbar {
+    width: 0px !important;
+  }
 }
 
 body {

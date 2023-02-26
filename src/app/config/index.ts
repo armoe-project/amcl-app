@@ -1,9 +1,11 @@
 import { resolve } from '@tauri-apps/api/path'
 import { exists, readTextFile, writeTextFile } from '@tauri-apps/api/fs'
 import { appGlobal } from '../global'
+import { getSystemJavaListInPath } from '../utils'
 
 interface JavaInfo {
-  home: string
+  bit: string
+  path: string
   info: string
   version: string
 }
@@ -18,7 +20,7 @@ interface Config {
   }
   java: {
     use: string
-    list: JavaInfo[]
+    list: string[]
   }
 }
 
@@ -41,6 +43,7 @@ let file: string
 async function setupConfig() {
   file = await resolve(appGlobal.path.dataDir, 'config.json')
   if (!(await exists(file))) {
+    config.java.list = await getSystemJavaListInPath()
     await saveConfig()
   } else {
     const json = await readTextFile(file)
@@ -63,7 +66,7 @@ async function setConfig(cfg: {
   }
   java?: {
     use?: string
-    list?: JavaInfo[]
+    list?: string[]
   }
 }) {
   if (cfg.theme) config.theme = cfg.theme

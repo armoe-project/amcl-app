@@ -75,6 +75,8 @@ import SettingsLaunch from './components/SettingsLaunch.vue'
 .amcl-settings-body {
   margin-left: 15px;
   margin-right: 15px;
+  max-height: 400px;
+  overflow: auto;
 }
 
 .amcl-settings-card {

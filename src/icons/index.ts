@@ -3,10 +3,14 @@ import {
   faArrowLeft,
   faBookOpen,
   faCaretUp,
+  faChevronDown,
+  faChevronUp,
   faCircleInfo,
   faCircleQuestion,
   faDownload,
+  faFileImport,
   faGear,
+  faMagnifyingGlass,
   faMinus,
   faPalette,
   faRocket,
@@ -20,18 +24,22 @@ import { App } from 'vue'
 
 const solidIcons = [
   faArrowLeft,
+  faBookOpen,
   faCaretUp,
+  faChevronDown,
+  faChevronUp,
   faCircleInfo,
+  faCircleQuestion,
   faDownload,
+  faFileImport,
   faGear,
+  faMagnifyingGlass,
   faMinus,
   faPalette,
   faRocket,
-  faWindowRestore,
-  faXmark,
-  faBookOpen,
   faRotate,
-  faCircleQuestion
+  faWindowRestore,
+  faXmark
 ]
 
 const brandIcons = [faQq, faDiscord, faGithub]

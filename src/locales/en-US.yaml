@@ -27,6 +27,14 @@ app:
         dark: Dark
         light: Light
       themeColor: Theme Color
+    launch:
+      java-path:
+        label: Java Path
+        auto: Automatic selection based on game version
+        search: Search
+        import: Import
+        invalid: Invalid path, please check if the selection is correct!
+        exist: This path is already in the list, please don't add it again!
     about:
       description: Cross-platform Minecraft Launcher developed using Vue and TypeScript powered by Tauri
       check-update: Check Update

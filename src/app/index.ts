@@ -1,7 +1,8 @@
 import { logger } from '../utils'
-import { createDir, exists } from '@tauri-apps/api/fs'
+import { createDir, exists, writeBinaryFile } from '@tauri-apps/api/fs'
 import { appGlobal, setupAppGlobal } from './global'
 import { config, setConfig, setupConfig } from './config'
+import { resolve } from '@tauri-apps/api/path'
 
 async function initializeDirectory() {
   const dataDir = appGlobal.path.dataDir
@@ -21,6 +22,11 @@ async function setupApp() {
   await setupAppGlobal()
   await initializeDirectory()
   await setupConfig()
+
+  const response = await fetch('/classes/AMCLBridge.class')
+  const buffer = await response.arrayBuffer()
+  const file = await resolve(appGlobal.path.downloadDir, 'AMCLBridge.class')
+  await writeBinaryFile(file, buffer)
 
   logger.info(appGlobal.app.appName)
   logger.info('Homepage: https://amcl.armoe.cn')

@@ -27,6 +27,14 @@ app:
         dark: 深色
         light: 浅色
       themeColor: 主题色
+    launch:
+      java-path:
+        label: Java 路径
+        auto: 自动选择适合游戏版本的 Java
+        search: 自动搜索
+        import: 手动导入
+        invalid: 无效的路径, 请检查选择是否正确!
+        exist: 此路径已在列表中, 请勿重复添加!
     about:
       description: 使用 Vue 和 TypeScript 开发的跨平台 Minecraft 启动器, 由 Tauri 驱动.
       check-update: '检查更新'
