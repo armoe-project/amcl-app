@@ -9,7 +9,7 @@ async function getJavaInfo(path: string) {
 }
 
 async function getSystemJavaListInPath() {
-  let cmd = 'which'
+  let cmd = 'which -a'
   if (appGlobal.os.type == 'Windows_NT') cmd = 'where'
 
   const output = await execShell(cmd, ['java'])

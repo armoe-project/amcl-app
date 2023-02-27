@@ -16,7 +16,7 @@ async function execShell(cmd: string, args: string[]) {
     case 'Darwin':
     case 'Linux':
       shCmd = 'sh'
-      shArgs = ['-c', `'${cmd} ${args.join(' ').trim()}'`]
+      shArgs = ['-c', `${cmd} ${args.join(' ').trim()}`]
       break
   }
 
