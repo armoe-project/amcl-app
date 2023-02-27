@@ -3,7 +3,7 @@ import { execShell } from './shell'
 
 async function getJavaInfo(path: string) {
   const workspace = appGlobal.path.downloadDir.replace(/\\\\\?\\/, '')
-  const output = await execShell('cd', [workspace, '&&', path, 'AMCLBridge'])
+  const output = await execShell('cd', [`'${workspace}'`, '&&', path, 'AMCLBridge'])
   const info = JSON.parse(output.stdout)
   return info
 }
