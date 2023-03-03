@@ -1,5 +1,8 @@
 import { Command } from '@tauri-apps/api/shell'
 import { appGlobal } from '..'
+import { Logger } from '../../utils'
+
+const logger = new Logger('Shell')
 
 async function execShell(cmd: string, args: string[]) {
   let shCmd
@@ -20,8 +23,18 @@ async function execShell(cmd: string, args: string[]) {
       break
   }
 
+  logger.debug('Command: ', shCmd)
+  logger.debug('Args: ', ...shArgs)
+
   const command = new Command(shCmd, shArgs, { encoding: shEncoding })
   const output = await command.execute()
+
+  if (output.code == 0) {
+    logger.debug('Output STDOUT: ', output.stdout)
+  } else {
+    logger.debug('Output STDERR: ', output.code, output.stderr)
+  }
+
   return output
 }
 

@@ -24,10 +24,13 @@
 import { dateEnUS, dateZhCN, enUS, zhCN } from 'naive-ui'
 import { computed } from 'vue'
 import { appGlobal, config } from './app'
+import { getSystemLanguage } from './utils'
 
 const vueGlobal = appGlobal.vue
 
 const locale = computed(() => {
+  let language = config.language
+  if (language == 'auto') language = getSystemLanguage()
   switch (config.language) {
     case 'zh-CN':
       return {
@@ -52,6 +55,7 @@ const locale = computed(() => {
   ::-webkit-scrollbar {
     width: 0px !important;
   }
+  user-select: none;
 }
 
 body {

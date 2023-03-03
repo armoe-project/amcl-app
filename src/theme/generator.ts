@@ -17,7 +17,7 @@ function generateTheme(color: string) {
       break
   }
 
-  const colors = generate(color, { theme })
+  const colors = generate(color)
   return {
     primaryColor: colors[5],
     primaryColorHover: colors[3],

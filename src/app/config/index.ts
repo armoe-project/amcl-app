@@ -3,14 +3,8 @@ import { exists, readTextFile, writeTextFile } from '@tauri-apps/api/fs'
 import { appGlobal } from '../global'
 import { getSystemJavaListInPath } from '../utils'
 
-interface JavaInfo {
-  bit: string
-  path: string
-  info: string
-  version: string
-}
-
 interface Config {
+  debug: boolean
   theme: 'auto' | 'dark' | 'light'
   language: string
   themeColor: string
@@ -25,6 +19,7 @@ interface Config {
 }
 
 let config: Config = {
+  debug: false,
   theme: 'auto',
   language: 'auto',
   themeColor: '#0088FF',

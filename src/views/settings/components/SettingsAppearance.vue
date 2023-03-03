@@ -26,6 +26,7 @@
       <span class="amcl-settings-label">{{ $t('app.settings.appearance.themeColor') }}</span>
       <n-color-picker
         class="amcl-settings-item"
+        placement="left-start"
         v-model:value="themeColor"
         :modes="['hex']"
         :show-alpha="false"
@@ -72,6 +73,7 @@ const onThemeColorPicker = () => {
 }
 
 onMounted(() => {
+  theme.value = config.theme
   themeColor.value = config.themeColor
 })
 </script>

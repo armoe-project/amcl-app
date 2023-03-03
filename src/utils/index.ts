@@ -1,4 +1,4 @@
-import { logger } from './logger'
+import { Logger } from './logger'
 import { getSystemLanguage } from './common'
 
-export { logger, getSystemLanguage }
+export { Logger, getSystemLanguage }

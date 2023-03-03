@@ -18,7 +18,13 @@ import {
   faWindowRestore,
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
-import { faQq, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons'
+import {
+  faQq,
+  faDiscord,
+  faGithub,
+  faMicrosoft,
+  faInstalod
+} from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { App } from 'vue'
 
@@ -42,7 +48,7 @@ const solidIcons = [
   faXmark
 ]
 
-const brandIcons = [faQq, faDiscord, faGithub]
+const brandIcons = [faQq, faDiscord, faGithub, faMicrosoft, faInstalod]
 
 function setupIcons(app: App<Element>) {
   solidIcons.forEach((icon) => library.add(icon))

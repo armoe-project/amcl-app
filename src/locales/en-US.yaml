@@ -1,8 +1,21 @@
 app:
   common:
     follow-system: Follow System
-  main:
-    startGame: Start Game
+    tips: Tips
+  home:
+    profile:
+      not-account-info: No account information
+      account-login: Account Login
+      skin-admin: Skin Manage
+      switch-account: Switch account
+      microsoft-login:
+        title: Microsoft Account Login
+    launch:
+      not-find-game: No available game version found
+      launch-game: Launch Game
+      download-game: Download Game
+      version-select: Version Select
+      version-settings: Version Settings
   settings:
     title:
       general: General

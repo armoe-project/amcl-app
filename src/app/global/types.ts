@@ -8,10 +8,6 @@ interface App {
   tauriVersion: string
 }
 
-interface Config {
-  devMode: boolean
-}
-
 interface Os {
   arch: Arch
   platform: Platform
@@ -24,6 +20,7 @@ interface Path {
   dataDir: string
   downloadDir: string
   minecraftDir: string
+  tempDir: string
 }
 
 interface Vue {
@@ -31,4 +28,4 @@ interface Vue {
   themeOverrides: GlobalThemeOverrides
 }
 
-export type { App, Config, Os, Path, Vue }
+export type { App, Os, Path, Vue }

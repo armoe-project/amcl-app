@@ -46,6 +46,9 @@ import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { appGlobal, config, setConfig } from '../../../app'
 import { getJavaInfo, getSystemJavaListInPath } from '../../../app/utils'
+import { Logger } from '../../../utils'
+
+const logger = new Logger('Settings')
 
 const message = useMessage()
 const i18n = useI18n()
@@ -66,7 +69,7 @@ const showJavaPath = () => {
 }
 
 const onJavaPathSelect = () => {
-  console.log(javaPath.value)
+  logger.info(`Java Path Select: ${javaPath.value}`)
   setConfig({
     java: {
       use: javaPath.value
@@ -116,10 +119,12 @@ const selectJavaPath = async () => {
 
 const _addJavaPathToList = async (path: string) => {
   const info = await getJavaInfo(path)
-  javaList.value.push({
-    label: `${info.specification} (${info.version} ${info.bit}) | ${info.vendor} | ${path}`,
-    value: path
-  })
+  if (info) {
+    javaList.value.push({
+      label: `${info.specification} (${info.version} ${info.bit}) | ${info.vendor} | ${path}`,
+      value: path
+    })
+  }
 }
 
 const _setupJavaList = async (newList?: string[]) => {

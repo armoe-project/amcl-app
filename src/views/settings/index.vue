@@ -1,12 +1,6 @@
 <template>
   <div class="amcl-settings">
-    <n-tabs
-      animated
-      class="amcl-settings-tabs"
-      :tabs-padding="15"
-      size="large"
-      default-value="general"
-    >
+    <n-tabs animated :tabs-padding="15" size="large" default-value="general">
       <n-tab-pane name="general">
         <template #tab>
           <font-awesome-icon icon="fa-solid fa-window-restore" />
@@ -60,10 +54,6 @@ import SettingsLaunch from './components/SettingsLaunch.vue'
   background-color: var(--amcl-bg-color);
   width: 100%;
   height: 100%;
-}
-
-.amcl-settings-tabs {
-  user-select: none;
 }
 
 .amcl-settings-tab-title {

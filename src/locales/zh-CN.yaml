@@ -1,8 +1,21 @@
 app:
   common:
     follow-system: 跟随系统
-  main:
-    startGame: 开始游戏
+    tips: 提示
+  home:
+    profile:
+      not-account-info: 暂无账号信息
+      account-login: 账号登录
+      skin-admin: 皮肤管理
+      switch-account: 切换账号
+      microsoft-login:
+        title: 微软账号登录
+    launch:
+      not-find-game: 未找到可用的游戏版本
+      launch-game: 启动游戏
+      download-game: 下载游戏
+      version-select: 版本选择
+      version-settings: 版本设置
   settings:
     title:
       general: 通用

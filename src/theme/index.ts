@@ -1,11 +1,14 @@
 import { readDir } from '@tauri-apps/api/fs'
 import { resolve } from '@tauri-apps/api/path'
 import { convertFileSrc } from '@tauri-apps/api/tauri'
-import { darkTheme, useOsTheme } from 'naive-ui'
+import { darkTheme, GlobalTheme, useOsTheme } from 'naive-ui'
+import { BuiltInGlobalTheme } from 'naive-ui/es/themes/interface'
 import { watch } from 'vue'
 import { appGlobal, config } from '../app'
-import { logger } from '../utils'
+import { Logger } from '../utils'
 import { generateTheme } from './generator'
+
+const logger = new Logger('Theme')
 
 let themeWatcher: any = undefined
 
@@ -50,14 +53,19 @@ function setTheme(theme: 'auto' | 'dark' | 'light') {
 
 function _setTheme(theme: 'dark' | 'light' | null) {
   logger.info(`Theme: ${theme}`)
-  if (theme == 'dark') {
-    document.documentElement.style.setProperty('--amcl-bg-color', 'rgba(0, 0, 0, 0.65)')
-    appGlobal.vue.value.theme = darkTheme
-  } else {
-    document.documentElement.style.setProperty('--amcl-bg-color', 'rgba(255, 255, 255, 0.5)')
-    appGlobal.vue.value.theme = null
+  const bgLabel = '--amcl-bg-color'
+  const homeBgLabel = '--amcl-home-card-bg-color'
+  let bgValue = 'rgba(0, 0, 0, 0.65)'
+  let homeBgValue = 'rgba(0, 0, 0, 0.83)'
+  let globalTheme: BuiltInGlobalTheme | null = darkTheme
+  if (theme != 'dark') {
+    bgValue = 'rgba(255, 255, 255, 0.6)'
+    homeBgValue = 'rgba(255, 255, 255, 0.78)'
+    globalTheme = null
   }
-
+  appGlobal.vue.value.theme = globalTheme
+  document.documentElement.style.setProperty(bgLabel, bgValue)
+  document.documentElement.style.setProperty(homeBgLabel, homeBgValue)
   appGlobal.vue.value.themeOverrides.common = generateTheme(config.themeColor)
 }
 

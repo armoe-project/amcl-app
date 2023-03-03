@@ -1,3 +1,4 @@
+import { tempdir } from '@tauri-apps/api/os'
 import { dataDir as osDataDir, resolve, resourceDir, homeDir } from '@tauri-apps/api/path'
 import { appGlobal } from '.'
 
@@ -36,7 +37,8 @@ async function setupPath() {
     backgroundDir: await backgroundDir(),
     dataDir: await dataDir(),
     downloadDir: await downloadDir(),
-    minecraftDir: await minecraftDir()
+    minecraftDir: await minecraftDir(),
+    tempDir: await resolve(await dataDir(), 'temp')
   }
 }
 

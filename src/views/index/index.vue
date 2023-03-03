@@ -38,6 +38,6 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  color: #fff;
+  color: var(--text-color-base);
 }
 </style>
