@@ -41,8 +41,6 @@ async function setupApp() {
   logger.info(`Operating System: ${os.type} ${os.version} (${os.arch})`)
   logger.info(`App Version: ${appGlobal.app.appVersion}`)
   logger.info(`Tauri Version: ${appGlobal.app.tauriVersion}`)
-
-  logger.debug(appGlobal)
 }
 
 export { setupApp, appGlobal, config, setConfig }

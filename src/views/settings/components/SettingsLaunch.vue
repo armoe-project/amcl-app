@@ -125,6 +125,27 @@ const _addJavaPathToList = async (path: string) => {
       value: path
     })
   }
+  await _saveJavaList()
+}
+
+const _saveJavaList = async () => {
+  let list: string[] = []
+  javaList.value.forEach((item) => {
+    if (item.value != 'auto') {
+      list.push(item.value)
+    }
+  })
+  list = Array.from(new Set(list))
+  list = list.filter((item) => {
+    if (item != null || item != '') {
+      return item
+    }
+  })
+  await setConfig({
+    java: {
+      list
+    }
+  })
 }
 
 const _setupJavaList = async (newList?: string[]) => {
@@ -138,10 +159,9 @@ const _setupJavaList = async (newList?: string[]) => {
   }
 
   list = Array.from(new Set(list))
-
-  await setConfig({
-    java: {
-      list: list
+  list = list.filter((item) => {
+    if (item != null || item != '') {
+      return item
     }
   })
 

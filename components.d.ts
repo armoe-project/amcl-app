@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     GlobalToolbar: typeof import('./src/components/GlobalToolbar.vue')['default']
     NAlert: typeof import('naive-ui')['NAlert']
-    NAvatar: typeof import('naive-ui')['NAvatar']
     NButton: typeof import('naive-ui')['NButton']
     NButtonGroup: typeof import('naive-ui')['NButtonGroup']
     NCard: typeof import('naive-ui')['NCard']
@@ -19,7 +18,6 @@ declare module '@vue/runtime-core' {
     NColorPicker: typeof import('naive-ui')['NColorPicker']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NEl: typeof import('naive-ui')['NEl']
-    NEllipsis: typeof import('naive-ui')['NEllipsis']
     NInput: typeof import('naive-ui')['NInput']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NModal: typeof import('naive-ui')['NModal']

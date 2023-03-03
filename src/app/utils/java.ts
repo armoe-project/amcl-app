@@ -21,7 +21,7 @@ async function getSystemJavaListInPath() {
 
   const output = await execShell(cmd, ['java'])
 
-  if ((output.stdout = '')) return []
+  if (output.stdout == '') return []
 
   const list = output.stdout.split('\n').map((item) => item.replace(/\r/g, ''))
   return list
