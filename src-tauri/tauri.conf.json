@@ -11,6 +11,9 @@
   },
   "tauri": {
     "allowlist": {
+      "clipboard":{
+        "all": true
+      },
       "dialog": {
         "open": true
       },
@@ -22,10 +25,13 @@
         "all": true
       },
       "http": {
-        "all": true,
+        "request": true,
         "scope": [
           "https://api.armoe.cn/amcl/*",
-          "https://api.github.com/repo/armoe-project/*"
+          "https://login.microsoftonline.com/*",
+          "https://user.auth.xboxlive.com/*",
+          "https://xsts.auth.xboxlive.com/*",
+          "https://api.minecraftservices.com/*"
         ]
       },
       "path": {

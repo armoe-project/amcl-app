@@ -5,18 +5,20 @@
     v-model:theme-overrides="vueGlobal.themeOverrides"
     v-model:theme="vueGlobal.theme"
   >
-    <n-message-provider placement="bottom">
-      <n-el>
-        <global-toolbar />
-        <router-view v-slot="{ Component }">
-          <transition name="fade">
-            <keep-alive>
-              <component :is="Component" />
-            </keep-alive>
-          </transition>
-        </router-view>
-      </n-el>
-    </n-message-provider>
+    <n-dialog-provider>
+      <n-message-provider placement="bottom">
+        <n-el>
+          <global-toolbar />
+          <router-view v-slot="{ Component }">
+            <transition name="fade">
+              <keep-alive>
+                <component :is="Component" />
+              </keep-alive>
+            </transition>
+          </router-view>
+        </n-el>
+      </n-message-provider>
+    </n-dialog-provider>
   </n-config-provider>
 </template>
 
