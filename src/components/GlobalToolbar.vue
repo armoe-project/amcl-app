@@ -4,7 +4,7 @@
       Armoe Minecraft Launcher v{{ appVersion }}
     </span>
     <n-button-group class="amcl-toolbar-button">
-      <n-button v-if="!isIndexPath() && !isHomePath()" quaternary @click="backToParent">
+      <n-button v-if="!isHomePath()" quaternary @click="backToParent">
         <font-awesome-icon icon="fa-solid fa-arrow-left" />
       </n-button>
       <n-button v-if="isHomePath()" quaternary @click="pushToSettings">
@@ -30,9 +30,6 @@ const router = useRouter()
 const isMacOS = ref(false)
 const appVersion = ref()
 
-const isIndexPath = () => {
-  return router.currentRoute.value.name == 'Index'
-}
 const isHomePath = () => {
   return router.currentRoute.value.name == 'Home'
 }

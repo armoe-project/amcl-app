@@ -10,6 +10,21 @@ app:
       switch-account: Switch account
       microsoft-login:
         title: Microsoft Account Login
+        content:
+          - 'Please follow the steps below to log in to your account:'
+          - 1.Click on the "Login" button
+          - 2.Enter the code "{0}" in the opened URL (copied to the clipboard)
+          - 3.Follow the prompts to grant "Armoe Minecraft Launcher" access to your information
+          - 4.Return to the launcher, wait for the addition to complete
+        button:
+          login: Login
+          wait-login: Waiting for login to complete
+          get-xbl-token: Get XBL Token
+          get-xsts-token: Get XSTS Token
+          get-minecraft-token: Get Minecraft Token
+          check-own-minecraft: Verify that you have Minecraft
+          get-minecraft-profile: Get Minecraft Profile
+        do-not-own-minecraft: Minecraft Java does not exist in your account Please confirm your purchase.
     launch:
       not-find-game: No available game version found
       launch-game: Launch Game

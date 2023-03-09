@@ -17,7 +17,7 @@
           <n-button type="primary" secondary>
             {{ $t('app.home.profile.skin-admin') }}
           </n-button>
-          <n-button type="primary" secondary style="margin-left: 10px">
+          <n-button type="primary" secondary style="margin-left: 10px" @click="accountLogin()">
             {{ $t('app.home.profile.switch-account') }}
           </n-button>
         </div>
@@ -115,11 +115,11 @@ const _dialogContent = (userCode: string) => {
     { vertical: true },
     {
       default: () => [
-        h('span', '请按照如下步骤登录账号:'),
-        h('span', '1.点击 "登录" 按钮'),
-        h('span', `2.在打开的网址输入代码 "${userCode}" (已复制到剪贴板)`),
-        h('span', '3.按提示授权 Armoe Minecraft Launcher 访问您的信息'),
-        h('span', '4.返回启动器, 等待添加完成')
+        h('span', i18n.t('app.home.profile.microsoft-login.content[0]')),
+        h('span', i18n.t('app.home.profile.microsoft-login.content[1]')),
+        h('span', i18n.t('app.home.profile.microsoft-login.content[2]', [userCode])),
+        h('span', i18n.t('app.home.profile.microsoft-login.content[3]')),
+        h('span', i18n.t('app.home.profile.microsoft-login.content[4]'))
       ]
     }
   )
@@ -129,26 +129,25 @@ const _startLogin = async (deviceCode: string, verificationUri: string, d: Dialo
   d.loading = true
   await open(verificationUri)
   await new Promise<void>((resolve) => {
-    d.positiveText = '等待登录完成'
+    d.positiveText = i18n.t('app.home.profile.microsoft-login.button.wait-login')
     interval = setInterval(async () => {
-      const data = await token(deviceCode)
-      if (data) {
+      if (await token(deviceCode)) {
         _stopLogin()
-        d.positiveText = '获取 XBL 凭据'
+        d.positiveText = i18n.t('app.home.profile.microsoft-login.button.get-xbl-token')
         await xblAuth()
-        d.positiveText = '获取 XSTS 凭据'
+        d.positiveText = i18n.t('app.home.profile.microsoft-login.button.get-xsts-token')
         await xstsAuth()
-        d.positiveText = '获取 Minecraft 凭据'
+        d.positiveText = i18n.t('app.home.profile.microsoft-login.button.get-minecraft-token')
         await minecraftAuth()
-        d.positiveText = '验证是否拥有 Minecraft'
+        d.positiveText = i18n.t('app.home.profile.microsoft-login.button.check-own-minecraft')
         if (!(await ownMinecraft())) {
           dialog.warning({
             title: i18n.t('app.common.tips'),
-            content: '你的账户中不存在 Minecraft Java版 请确认是否购买.'
+            content: i18n.t('app.home.profile.microsoft-login.do-not-own-minecraft')
           })
           resolve()
         }
-        d.positiveText = '获取 Minecraft 用户资料'
+        d.positiveText = i18n.t('app.home.profile.microsoft-login.button.get-minecraft-profile')
         await profile()
         _initProfile()
         resolve()
@@ -173,7 +172,7 @@ const accountLogin = async () => {
 
   const d = dialog.info({
     title: i18n.t('app.home.profile.microsoft-login.title'),
-    positiveText: '登录',
+    positiveText: i18n.t('app.home.profile.microsoft-login.button.login'),
     maskClosable: false,
     content: () => _dialogContent(userCode),
     onPositiveClick: async () => await _startLogin(deviceCode, verificationUri, d),

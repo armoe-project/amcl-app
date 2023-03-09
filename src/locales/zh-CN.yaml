@@ -10,6 +10,21 @@ app:
       switch-account: 切换账号
       microsoft-login:
         title: 微软账号登录
+        content:
+          - '请按照如下步骤登录账号:'
+          - 1.点击 "登录" 按钮
+          - 2.在打开的网址输入代码 "{0}" (已复制到剪贴板)
+          - 3.按提示授权 "Armoe Minecraft Launcher" 访问您的信息
+          - 4.返回启动器, 等待添加完成
+        button:
+          login: 登录
+          wait-login: 等待登录完成
+          get-xbl-token: 获取 XBL 凭据
+          get-xsts-token: 获取 XSTS 凭据
+          get-minecraft-token: 获取 Minecraft 凭据
+          check-own-minecraft: 验证是否拥有 Minecraft
+          get-minecraft-profile: 获取 Minecraft 用户资料
+        do-not-own-minecraft: 你的账户中不存在 Minecraft Java版 请确认是否购买.
     launch:
       not-find-game: 未找到可用的游戏版本
       launch-game: 启动游戏
