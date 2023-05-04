@@ -66,10 +66,13 @@
 
 <script lang="ts" setup>
 import { writeText } from '@tauri-apps/api/clipboard'
+import { exists, readDir } from '@tauri-apps/api/fs'
+import { resolve } from '@tauri-apps/api/path'
 import { open } from '@tauri-apps/api/shell'
 import { DialogReactive, NSpace, useDialog } from 'naive-ui'
 import { h, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { appGlobal } from '../../../app'
 import {
   devicecode,
   token,
@@ -106,6 +109,16 @@ const _initProfile = () => {
     isLogin.value = true
     profileName.value = profile.name
     profileAvatar.value = `https://minotar.net/avatar/${profile.name}`
+  }
+}
+
+const _initGameList = async () => {
+  const versionDir = await resolve(appGlobal.path.minecraftDir, 'versions')
+  if (await exists(versionDir)) {
+    const versions = await readDir(versionDir)
+    versions.forEach((version) => {
+      console.log(version)
+    })
   }
 }
 
