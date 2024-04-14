@@ -44,10 +44,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
       - name: Install Dependencies
-        run: |
-          npm i -g pnpm
-          pnpm install
+        run: bun install
       - name: Install Dependencies (Ubuntu)
         if: ${{ matrix.config.os == 'ubuntu' }}
         run: |
@@ -62,7 +63,7 @@ jobs:
             librsvg2-dev
 
       - name: Build App
-        run: pnpm build --target ${{ matrix.config.target }}
+        run: bun run build --target ${{ matrix.config.target }}
 
       - name: Setup Artifact (Windows)
         if: ${{ matrix.config.os == 'windows' }}
