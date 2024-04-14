@@ -3,6 +3,7 @@ name: Snapshot Builds
 on:
   push:
     paths:
+      - '.github/workflows/snapshot.yml'
       - 'public/**'
       - 'scripts/**'
       - 'src/**'
