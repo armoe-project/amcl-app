@@ -3,7 +3,7 @@
     windows_subsystem = "windows"
 )]
 
-use tauri::{utils::platform, Manager, PhysicalSize, Size};
+use tauri::{Manager, PhysicalSize, Size};
 use window_shadows::set_shadow;
 
 fn main() {
@@ -30,12 +30,8 @@ fn main() {
 }
 
 fn runtime_error() {
-    #[cfg(target_os = "windows")]
-    let url = "https://amcl.armoe.cn/install/windows.html";
-    #[cfg(target_os = "macos")]
-    let url = "https://amcl.armoe.cn/install/macos.html";
-    #[cfg(target_os = "linux")]
-    let url = "https://amcl.armoe.cn/install/linux.html";
-    open::that(url).unwrap();
-    std::process::exit(0)
+    let os = std::env::consts::OS;
+    let url = format!("https://amcl.armoe.cn/install/{}.html", os);
+    open::that(&url).unwrap();
+    std::process::exit(0);
 }
