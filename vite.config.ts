@@ -13,7 +13,7 @@ export default defineConfig({
       resolvers: [NaiveUiResolver()]
     }),
     VueI18n({
-      include: path.resolve(__dirname, './src/locales/**')
+      include: path.resolve(__dirname, './src/locales/*.yaml')
     })
   ],
 

@@ -3,7 +3,7 @@
     windows_subsystem = "windows"
 )]
 
-use tauri::{Manager, PhysicalSize, Size};
+use tauri::{utils::platform, Manager, PhysicalSize, Size};
 use window_shadows::set_shadow;
 
 fn main() {
