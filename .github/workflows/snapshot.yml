@@ -35,7 +35,7 @@ jobs:
     runs-on: ${{ matrix.config.os }}-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
@@ -48,7 +48,7 @@ jobs:
           workspaces: './src-tauri -> target'
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Setup Bun
@@ -81,7 +81,7 @@ jobs:
         run: bash scripts/setup-artifact.sh ${{ matrix.config.os }} ${{ matrix.config.arch }} ${{ matrix.config.target }}
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.config.os }}-${{ matrix.config.arch }}
           path: artifacts/${{ matrix.config.os }}-${{ matrix.config.arch }}/**
