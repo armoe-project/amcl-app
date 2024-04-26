@@ -22,18 +22,6 @@
 
 Cross-platform Minecraft launcher developed with `Tauri` + `Vue` + `Naive UI`
 
-## Todo
-
-- [x] Basic UI
-- [ ] Game Launch
-- [ ] Game Management
-- [ ] Game Download/Install
-- [ ] Mod loader auto-installation
-- [ ] Microsoft Account Login
-- [ ] Mod Download/Install
-- [ ] Mod package import
-- [ ] Background Music/Image
-
 ## Feedback
 
 - Submit [Issues](https://github.com/armoe-project/amcl-app/issues)
