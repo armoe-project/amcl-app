@@ -16,7 +16,13 @@ export default defineConfig({
       include: path.resolve(__dirname, './src/locales/*.yaml')
     })
   ],
-
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler'
+      }
+    }
+  },
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   // prevent vite from obscuring rust errors
   clearScreen: false,

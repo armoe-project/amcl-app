@@ -15,29 +15,29 @@
   },
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
-    "@fortawesome/fontawesome-svg-core": "^6.5.2",
-    "@fortawesome/free-brands-svg-icons": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@tauri-apps/api": "^1.6.0",
     "js-cookie": "^3.0.5",
-    "naive-ui": "^2.38.2",
-    "sass": "^1.77.6",
-    "vue": "^3.4.31",
-    "vue-i18n": "^9.13.1",
-    "vue-router": "^4.4.0"
+    "naive-ui": "^2.40.1",
+    "sass": "^1.79.4",
+    "vue": "^3.5.10",
+    "vue-i18n": "^9.14.1",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "^4.0.0",
-    "@tauri-apps/cli": "^1.6.0",
+    "@tauri-apps/cli": "^1.6.2",
     "@types/js-cookie": "^3.0.6",
-    "@types/node": "^20.14.10",
-    "@vitejs/plugin-vue": "^5.0.5",
-    "prettier": "^3.3.2",
-    "typescript": "^5.5.3",
-    "unplugin-vue-components": "^0.27.2",
-    "vite": "^5.3.3",
-    "vue-tsc": "^2.0.26"
+    "@types/node": "^22.7.4",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
+    "unplugin-vue-components": "^0.27.4",
+    "vite": "^5.4.8",
+    "vue-tsc": "^2.1.6"
   },
-  "packageManager": "bun@1.1.11"
+  "packageManager": "bun@1.1.29"
 }
