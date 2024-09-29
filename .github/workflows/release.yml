@@ -62,15 +62,6 @@ jobs:
       - name: Build App
         run: bun run build --target ${{ matrix.config.target }}
 
-      - name: Run UPX (Windows)
-        if: ${{ matrix.config.os == 'windows' }}
-        uses: crazy-max/ghaction-upx@v3
-        with:
-          version: latest
-          files: |
-            ./src-tauri/target/${{ matrix.config.target }}/release/*.exe
-          args: -fq
-
       - name: Setup Artifact (Windows)
         if: ${{ matrix.config.os == 'windows' }}
         run: pwsh scripts/setup-artifact.ps1 ${{ matrix.config.os }} ${{ matrix.config.arch }} ${{ matrix.config.target }}
